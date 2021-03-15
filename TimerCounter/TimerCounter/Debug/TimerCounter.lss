@@ -1,0 +1,1236 @@
+
+TimerCounter.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000006be  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000732  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000001  00800060  00800060  00000732  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000732  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000764  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000050  00000000  00000000  000007a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000b20  00000000  00000000  000007f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000708  00000000  00000000  00001310  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000085d  00000000  00000000  00001a18  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000124  00000000  00000000  00002278  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000665  00000000  00000000  0000239c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000703  00000000  00000000  00002a01  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000030  00000000  00000000  00003104  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 44 00 	jmp	0x88	; 0x88 <__ctors_end>
+   4:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+   8:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+   c:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  10:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  14:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  18:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  1c:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  20:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  24:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  28:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  2c:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  30:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  34:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  38:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  3c:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  40:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  44:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  48:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  4c:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  50:	0c 94 61 00 	jmp	0xc2	; 0xc2 <__bad_interrupt>
+  54:	04 02       	muls	r16, r20
+  56:	17 02       	muls	r17, r23
+  58:	4d 02       	muls	r20, r29
+  5a:	4d 02       	muls	r20, r29
+  5c:	4d 02       	muls	r20, r29
+  5e:	4d 02       	muls	r20, r29
+  60:	4d 02       	muls	r20, r29
+  62:	4d 02       	muls	r20, r29
+  64:	4d 02       	muls	r20, r29
+  66:	4d 02       	muls	r20, r29
+  68:	4d 02       	muls	r20, r29
+  6a:	4d 02       	muls	r20, r29
+  6c:	4d 02       	muls	r20, r29
+  6e:	4d 02       	muls	r20, r29
+  70:	4d 02       	muls	r20, r29
+  72:	4d 02       	muls	r20, r29
+  74:	4d 02       	muls	r20, r29
+  76:	4d 02       	muls	r20, r29
+  78:	4d 02       	muls	r20, r29
+  7a:	e9 01       	movw	r28, r18
+  7c:	4d 02       	muls	r20, r29
+  7e:	d3 01       	movw	r26, r6
+  80:	de 01       	movw	r26, r28
+  82:	f7 01       	movw	r30, r14
+  84:	2a 02       	muls	r18, r26
+  86:	3c 02       	muls	r19, r28
+
+00000088 <__ctors_end>:
+  88:	11 24       	eor	r1, r1
+  8a:	1f be       	out	0x3f, r1	; 63
+  8c:	cf e5       	ldi	r28, 0x5F	; 95
+  8e:	d8 e0       	ldi	r29, 0x08	; 8
+  90:	de bf       	out	0x3e, r29	; 62
+  92:	cd bf       	out	0x3d, r28	; 61
+
+00000094 <__do_copy_data>:
+  94:	10 e0       	ldi	r17, 0x00	; 0
+  96:	a0 e6       	ldi	r26, 0x60	; 96
+  98:	b0 e0       	ldi	r27, 0x00	; 0
+  9a:	ee eb       	ldi	r30, 0xBE	; 190
+  9c:	f6 e0       	ldi	r31, 0x06	; 6
+  9e:	02 c0       	rjmp	.+4      	; 0xa4 <__do_copy_data+0x10>
+  a0:	05 90       	lpm	r0, Z+
+  a2:	0d 92       	st	X+, r0
+  a4:	a0 36       	cpi	r26, 0x60	; 96
+  a6:	b1 07       	cpc	r27, r17
+  a8:	d9 f7       	brne	.-10     	; 0xa0 <__do_copy_data+0xc>
+
+000000aa <__do_clear_bss>:
+  aa:	20 e0       	ldi	r18, 0x00	; 0
+  ac:	a0 e6       	ldi	r26, 0x60	; 96
+  ae:	b0 e0       	ldi	r27, 0x00	; 0
+  b0:	01 c0       	rjmp	.+2      	; 0xb4 <.do_clear_bss_start>
+
+000000b2 <.do_clear_bss_loop>:
+  b2:	1d 92       	st	X+, r1
+
+000000b4 <.do_clear_bss_start>:
+  b4:	a1 36       	cpi	r26, 0x61	; 97
+  b6:	b2 07       	cpc	r27, r18
+  b8:	e1 f7       	brne	.-8      	; 0xb2 <.do_clear_bss_loop>
+  ba:	0e 94 63 00 	call	0xc6	; 0xc6 <main>
+  be:	0c 94 5d 03 	jmp	0x6ba	; 0x6ba <_exit>
+
+000000c2 <__bad_interrupt>:
+  c2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000c6 <main>:
+#include "TimerCounter.h"
+
+TC timerCounter;
+
+int main(void)
+{
+  c6:	8f 92       	push	r8
+  c8:	af 92       	push	r10
+  ca:	cf 92       	push	r12
+  cc:	df 92       	push	r13
+  ce:	ef 92       	push	r14
+  d0:	ff 92       	push	r15
+  d2:	0f 93       	push	r16
+  d4:	1f 93       	push	r17
+	//while (1)
+	//{
+		timerCounter.TimerMode(Timer0 , Normal , Toggle , 1024 , 0 , 0 , false , false);
+  d6:	81 2c       	mov	r8, r1
+  d8:	a1 2c       	mov	r10, r1
+  da:	c1 2c       	mov	r12, r1
+  dc:	d1 2c       	mov	r13, r1
+  de:	e1 2c       	mov	r14, r1
+  e0:	f1 2c       	mov	r15, r1
+  e2:	00 e0       	ldi	r16, 0x00	; 0
+  e4:	14 e0       	ldi	r17, 0x04	; 4
+  e6:	2b e0       	ldi	r18, 0x0B	; 11
+  e8:	40 e0       	ldi	r20, 0x00	; 0
+  ea:	6f e0       	ldi	r22, 0x0F	; 15
+  ec:	80 e6       	ldi	r24, 0x60	; 96
+  ee:	90 e0       	ldi	r25, 0x00	; 0
+  f0:	0e 94 85 00 	call	0x10a	; 0x10a <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb>
+	//}
+}
+  f4:	80 e0       	ldi	r24, 0x00	; 0
+  f6:	90 e0       	ldi	r25, 0x00	; 0
+  f8:	1f 91       	pop	r17
+  fa:	0f 91       	pop	r16
+  fc:	ff 90       	pop	r15
+  fe:	ef 90       	pop	r14
+ 100:	df 90       	pop	r13
+ 102:	cf 90       	pop	r12
+ 104:	af 90       	pop	r10
+ 106:	8f 90       	pop	r8
+ 108:	08 95       	ret
+
+0000010a <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb>:
+		break;
+	}
+}
+
+void TC::TimerMode(PhraseVariable timerx , PhraseVariable waveFormGeneration , PhraseVariable workMode , uint16_t preScaler , uint16_t initialValue , uint16_t specificValue , bool timerOverFlowinterrupt , bool timerCompareInterrupt)
+{
+ 10a:	8f 92       	push	r8
+ 10c:	af 92       	push	r10
+ 10e:	bf 92       	push	r11
+ 110:	cf 92       	push	r12
+ 112:	df 92       	push	r13
+ 114:	ef 92       	push	r14
+ 116:	ff 92       	push	r15
+ 118:	0f 93       	push	r16
+ 11a:	1f 93       	push	r17
+ 11c:	cf 93       	push	r28
+ 11e:	df 93       	push	r29
+ 120:	cd b7       	in	r28, 0x3d	; 61
+ 122:	de b7       	in	r29, 0x3e	; 62
+ 124:	b4 2e       	mov	r11, r20
+	switch (timerx)
+ 126:	60 31       	cpi	r22, 0x10	; 16
+ 128:	09 f4       	brne	.+2      	; 0x12c <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x22>
+ 12a:	8c c0       	rjmp	.+280    	; 0x244 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x13a>
+ 12c:	61 31       	cpi	r22, 0x11	; 17
+ 12e:	09 f4       	brne	.+2      	; 0x132 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x28>
+ 130:	cd c1       	rjmp	.+922    	; 0x4cc <__LOCK_REGION_LENGTH__+0xcc>
+ 132:	6f 30       	cpi	r22, 0x0F	; 15
+ 134:	09 f0       	breq	.+2      	; 0x138 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x2e>
+ 136:	5f c2       	rjmp	.+1214   	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+	{
+		
+//------------------Timer0-----------------:
+		
+		case Timer0:
+		DDRB |= (1 << PB3);
+ 138:	bb 9a       	sbi	0x17, 3	; 23
+		switch (preScaler)
+ 13a:	00 34       	cpi	r16, 0x40	; 64
+ 13c:	11 05       	cpc	r17, r1
+ 13e:	89 f0       	breq	.+34     	; 0x162 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x58>
+ 140:	20 f4       	brcc	.+8      	; 0x14a <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x40>
+ 142:	08 30       	cpi	r16, 0x08	; 8
+ 144:	11 05       	cpc	r17, r1
+ 146:	49 f0       	breq	.+18     	; 0x15a <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x50>
+ 148:	15 c0       	rjmp	.+42     	; 0x174 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x6a>
+ 14a:	01 15       	cp	r16, r1
+ 14c:	81 e0       	ldi	r24, 0x01	; 1
+ 14e:	18 07       	cpc	r17, r24
+ 150:	59 f0       	breq	.+22     	; 0x168 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x5e>
+ 152:	01 15       	cp	r16, r1
+ 154:	14 40       	sbci	r17, 0x04	; 4
+ 156:	61 f0       	breq	.+24     	; 0x170 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x66>
+ 158:	0d c0       	rjmp	.+26     	; 0x174 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x6a>
+		{
+			TCCR0 |= (1 << CS00);
+			case 1:
+			break;
+			case 8:
+			TCCR0 |= (1 << CS01);
+ 15a:	83 b7       	in	r24, 0x33	; 51
+ 15c:	82 60       	ori	r24, 0x02	; 2
+ 15e:	83 bf       	out	0x33, r24	; 51
+			break;
+ 160:	09 c0       	rjmp	.+18     	; 0x174 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x6a>
+			case 64:
+			TCCR0 = (1 << CS00)|(1 << CS01);
+ 162:	83 e0       	ldi	r24, 0x03	; 3
+ 164:	83 bf       	out	0x33, r24	; 51
+			break;
+ 166:	06 c0       	rjmp	.+12     	; 0x174 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x6a>
+			case 256:
+			TCCR0 |= (1 << CS02);
+ 168:	83 b7       	in	r24, 0x33	; 51
+ 16a:	84 60       	ori	r24, 0x04	; 4
+ 16c:	83 bf       	out	0x33, r24	; 51
+			break;
+ 16e:	02 c0       	rjmp	.+4      	; 0x174 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x6a>
+			case 1024:
+			TCCR0 = (1 << CS00)|(1 << CS02);
+ 170:	85 e0       	ldi	r24, 0x05	; 5
+ 172:	83 bf       	out	0x33, r24	; 51
+			break;
+		}
+		switch (workMode)
+ 174:	2c 30       	cpi	r18, 0x0C	; 12
+ 176:	d9 f0       	breq	.+54     	; 0x1ae <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xa4>
+ 178:	28 f4       	brcc	.+10     	; 0x184 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x7a>
+ 17a:	24 30       	cpi	r18, 0x04	; 4
+ 17c:	a1 f0       	breq	.+40     	; 0x1a6 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x9c>
+ 17e:	2b 30       	cpi	r18, 0x0B	; 11
+ 180:	71 f0       	breq	.+28     	; 0x19e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x94>
+ 182:	1e c0       	rjmp	.+60     	; 0x1c0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb6>
+ 184:	23 31       	cpi	r18, 0x13	; 19
+ 186:	b1 f0       	breq	.+44     	; 0x1b4 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xaa>
+ 188:	24 31       	cpi	r18, 0x14	; 20
+ 18a:	b9 f0       	breq	.+46     	; 0x1ba <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb0>
+ 18c:	22 31       	cpi	r18, 0x12	; 18
+ 18e:	c1 f4       	brne	.+48     	; 0x1c0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb6>
+		{
+			case Disconnenct:
+			TCCR0 &= ~(1 << COM00);
+ 190:	83 b7       	in	r24, 0x33	; 51
+ 192:	8f 7e       	andi	r24, 0xEF	; 239
+ 194:	83 bf       	out	0x33, r24	; 51
+			TCCR0 &= ~(1 << COM01);
+ 196:	83 b7       	in	r24, 0x33	; 51
+ 198:	8f 7d       	andi	r24, 0xDF	; 223
+ 19a:	83 bf       	out	0x33, r24	; 51
+			break;
+ 19c:	11 c0       	rjmp	.+34     	; 0x1c0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb6>
+			case Toggle:
+			TCCR0 |= (1 << COM00);
+ 19e:	83 b7       	in	r24, 0x33	; 51
+ 1a0:	80 61       	ori	r24, 0x10	; 16
+ 1a2:	83 bf       	out	0x33, r24	; 51
+			break;
+ 1a4:	0d c0       	rjmp	.+26     	; 0x1c0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb6>
+			case Clear:
+			TCCR0 |= (1 << COM01);
+ 1a6:	83 b7       	in	r24, 0x33	; 51
+ 1a8:	80 62       	ori	r24, 0x20	; 32
+ 1aa:	83 bf       	out	0x33, r24	; 51
+			break;
+ 1ac:	09 c0       	rjmp	.+18     	; 0x1c0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb6>
+			case Set:
+			TCCR0 = (1 << COM00)|(1 << COM01);
+ 1ae:	80 e3       	ldi	r24, 0x30	; 48
+ 1b0:	83 bf       	out	0x33, r24	; 51
+			break;
+ 1b2:	06 c0       	rjmp	.+12     	; 0x1c0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb6>
+			case Inverted:
+			TCCR0 = (1 << COM00)|(1 << COM01);
+ 1b4:	80 e3       	ldi	r24, 0x30	; 48
+ 1b6:	83 bf       	out	0x33, r24	; 51
+			break;
+ 1b8:	03 c0       	rjmp	.+6      	; 0x1c0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xb6>
+			case NonInverted:
+			TCCR0 |= (1 << COM01);
+ 1ba:	83 b7       	in	r24, 0x33	; 51
+ 1bc:	80 62       	ori	r24, 0x20	; 32
+ 1be:	83 bf       	out	0x33, r24	; 51
+			break;
+		}
+		switch (waveFormGeneration)
+ 1c0:	81 e0       	ldi	r24, 0x01	; 1
+ 1c2:	b8 16       	cp	r11, r24
+ 1c4:	91 f0       	breq	.+36     	; 0x1ea <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xe0>
+ 1c6:	b8 16       	cp	r11, r24
+ 1c8:	38 f0       	brcs	.+14     	; 0x1d8 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xce>
+ 1ca:	95 e0       	ldi	r25, 0x05	; 5
+ 1cc:	b9 16       	cp	r11, r25
+ 1ce:	e1 f0       	breq	.+56     	; 0x208 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xfe>
+ 1d0:	8e e0       	ldi	r24, 0x0E	; 14
+ 1d2:	b8 16       	cp	r11, r24
+ 1d4:	a9 f0       	breq	.+42     	; 0x200 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xf6>
+ 1d6:	28 c0       	rjmp	.+80     	; 0x228 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x11e>
+		{
+			case Normal:
+			TCNT0 = initialValue;
+ 1d8:	e2 be       	out	0x32, r14	; 50
+			OCR0 = specificValue;
+ 1da:	cc be       	out	0x3c, r12	; 60
+			while((TIFR & (1 << TOV0)) == 0);
+ 1dc:	08 b6       	in	r0, 0x38	; 56
+ 1de:	00 fe       	sbrs	r0, 0
+ 1e0:	fd cf       	rjmp	.-6      	; 0x1dc <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xd2>
+			TIFR |= (1 << TOV0);
+ 1e2:	88 b7       	in	r24, 0x38	; 56
+ 1e4:	81 60       	ori	r24, 0x01	; 1
+ 1e6:	88 bf       	out	0x38, r24	; 56
+			break;
+ 1e8:	1f c0       	rjmp	.+62     	; 0x228 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x11e>
+			case CTC:
+			OCR0 = specificValue;
+ 1ea:	cc be       	out	0x3c, r12	; 60
+			TCCR0 |= (1 << WGM01);
+ 1ec:	83 b7       	in	r24, 0x33	; 51
+ 1ee:	88 60       	ori	r24, 0x08	; 8
+ 1f0:	83 bf       	out	0x33, r24	; 51
+			while ((TIFR & (1 << OCF0)) == 0);
+ 1f2:	08 b6       	in	r0, 0x38	; 56
+ 1f4:	01 fe       	sbrs	r0, 1
+ 1f6:	fd cf       	rjmp	.-6      	; 0x1f2 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0xe8>
+			TIFR |= (1 << OCF0);
+ 1f8:	88 b7       	in	r24, 0x38	; 56
+ 1fa:	82 60       	ori	r24, 0x02	; 2
+ 1fc:	88 bf       	out	0x38, r24	; 56
+			break;
+ 1fe:	14 c0       	rjmp	.+40     	; 0x228 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x11e>
+			case PhaseCorrectPWM:
+			TCCR0 |= (1 << WGM00);
+ 200:	83 b7       	in	r24, 0x33	; 51
+ 202:	80 64       	ori	r24, 0x40	; 64
+ 204:	83 bf       	out	0x33, r24	; 51
+			break;
+ 206:	10 c0       	rjmp	.+32     	; 0x228 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x11e>
+			case FastPWM:
+			TCCR0 = (1 << WGM00)|(1 << WGM01);
+ 208:	88 e4       	ldi	r24, 0x48	; 72
+ 20a:	83 bf       	out	0x33, r24	; 51
+			OCR0 = int((specificValue * 256) / 100);
+ 20c:	dc 2c       	mov	r13, r12
+ 20e:	cc 24       	eor	r12, r12
+ 210:	96 01       	movw	r18, r12
+ 212:	36 95       	lsr	r19
+ 214:	27 95       	ror	r18
+ 216:	36 95       	lsr	r19
+ 218:	27 95       	ror	r18
+ 21a:	ab e7       	ldi	r26, 0x7B	; 123
+ 21c:	b4 e1       	ldi	r27, 0x14	; 20
+ 21e:	0e 94 2c 03 	call	0x658	; 0x658 <__umulhisi3>
+ 222:	96 95       	lsr	r25
+ 224:	87 95       	ror	r24
+ 226:	8c bf       	out	0x3c, r24	; 60
+			break;
+		}
+		if (timerOverFlowinterrupt)
+ 228:	aa 20       	and	r10, r10
+ 22a:	21 f0       	breq	.+8      	; 0x234 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x12a>
+		{
+			sei();
+ 22c:	78 94       	sei
+			TIMSK |= (1 << TOIE0);
+ 22e:	89 b7       	in	r24, 0x39	; 57
+ 230:	81 60       	ori	r24, 0x01	; 1
+ 232:	89 bf       	out	0x39, r24	; 57
+		}
+		if (timerCompareInterrupt)
+ 234:	88 20       	and	r8, r8
+ 236:	09 f4       	brne	.+2      	; 0x23a <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x130>
+ 238:	de c1       	rjmp	.+956    	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+		{
+			sei();
+ 23a:	78 94       	sei
+			TIMSK |= (1 << OCIE0);
+ 23c:	89 b7       	in	r24, 0x39	; 57
+ 23e:	82 60       	ori	r24, 0x02	; 2
+ 240:	89 bf       	out	0x39, r24	; 57
+ 242:	d9 c1       	rjmp	.+946    	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+		break;
+		
+//------------------Timer1--------------------- :
+
+		case Timer1:
+		if (waveFormGeneration == Normal_ChannelA || waveFormGeneration == CTC_ChannelA || waveFormGeneration == FastPWM_ChannelA || waveFormGeneration == PhaseAndFrequensyCorrectPWM_ChannelA)
+ 244:	84 2f       	mov	r24, r20
+ 246:	8d 7f       	andi	r24, 0xFD	; 253
+ 248:	85 31       	cpi	r24, 0x15	; 21
+ 24a:	31 f0       	breq	.+12     	; 0x258 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x14e>
+ 24c:	9a e1       	ldi	r25, 0x1A	; 26
+ 24e:	49 17       	cp	r20, r25
+ 250:	19 f0       	breq	.+6      	; 0x258 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x14e>
+ 252:	9d e0       	ldi	r25, 0x0D	; 13
+ 254:	49 13       	cpse	r20, r25
+ 256:	02 c0       	rjmp	.+4      	; 0x25c <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x152>
+		{
+			DDRD |= (1 << PD5);
+ 258:	8d 9a       	sbi	0x11, 5	; 17
+ 25a:	0b c0       	rjmp	.+22     	; 0x272 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x168>
+		}
+		else if (waveFormGeneration == Normal_ChannelB || waveFormGeneration == CTC_ChannelB || waveFormGeneration == FastPWM_ChannelB || waveFormGeneration == PhaseAndFrequensyCorrectPWM_ChannelB)
+ 25c:	98 ee       	ldi	r25, 0xE8	; 232
+ 25e:	94 0f       	add	r25, r20
+ 260:	92 30       	cpi	r25, 0x02	; 2
+ 262:	30 f0       	brcs	.+12     	; 0x270 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x166>
+ 264:	9b e1       	ldi	r25, 0x1B	; 27
+ 266:	49 17       	cp	r20, r25
+ 268:	19 f0       	breq	.+6      	; 0x270 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x166>
+ 26a:	96 e1       	ldi	r25, 0x16	; 22
+ 26c:	49 13       	cpse	r20, r25
+ 26e:	01 c0       	rjmp	.+2      	; 0x272 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x168>
+		{
+			DDRD |= (1 << PD4);
+ 270:	8c 9a       	sbi	0x11, 4	; 17
+		}
+		switch (preScaler)
+ 272:	00 34       	cpi	r16, 0x40	; 64
+ 274:	11 05       	cpc	r17, r1
+ 276:	c1 f0       	breq	.+48     	; 0x2a8 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x19e>
+ 278:	38 f4       	brcc	.+14     	; 0x288 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x17e>
+ 27a:	01 30       	cpi	r16, 0x01	; 1
+ 27c:	11 05       	cpc	r17, r1
+ 27e:	61 f0       	breq	.+24     	; 0x298 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x18e>
+ 280:	08 30       	cpi	r16, 0x08	; 8
+ 282:	11 05       	cpc	r17, r1
+ 284:	69 f0       	breq	.+26     	; 0x2a0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x196>
+ 286:	19 c0       	rjmp	.+50     	; 0x2ba <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1b0>
+ 288:	01 15       	cp	r16, r1
+ 28a:	91 e0       	ldi	r25, 0x01	; 1
+ 28c:	19 07       	cpc	r17, r25
+ 28e:	79 f0       	breq	.+30     	; 0x2ae <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1a4>
+ 290:	01 15       	cp	r16, r1
+ 292:	14 40       	sbci	r17, 0x04	; 4
+ 294:	81 f0       	breq	.+32     	; 0x2b6 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1ac>
+ 296:	11 c0       	rjmp	.+34     	; 0x2ba <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1b0>
+		{
+			case 1:
+			TCCR1B |= (1 << CS10);
+ 298:	9e b5       	in	r25, 0x2e	; 46
+ 29a:	91 60       	ori	r25, 0x01	; 1
+ 29c:	9e bd       	out	0x2e, r25	; 46
+			break;
+ 29e:	0d c0       	rjmp	.+26     	; 0x2ba <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1b0>
+			case 8:
+			TCCR1B |= (1 << CS11);
+ 2a0:	9e b5       	in	r25, 0x2e	; 46
+ 2a2:	92 60       	ori	r25, 0x02	; 2
+ 2a4:	9e bd       	out	0x2e, r25	; 46
+			break;
+ 2a6:	09 c0       	rjmp	.+18     	; 0x2ba <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1b0>
+			case 64:
+			TCCR1B = (1 << CS10)|(1 << CS11);
+ 2a8:	93 e0       	ldi	r25, 0x03	; 3
+ 2aa:	9e bd       	out	0x2e, r25	; 46
+			break;
+ 2ac:	06 c0       	rjmp	.+12     	; 0x2ba <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1b0>
+			case 256:
+			TCCR1B |= (1 << CS12);
+ 2ae:	9e b5       	in	r25, 0x2e	; 46
+ 2b0:	94 60       	ori	r25, 0x04	; 4
+ 2b2:	9e bd       	out	0x2e, r25	; 46
+			break;
+ 2b4:	02 c0       	rjmp	.+4      	; 0x2ba <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1b0>
+			case 1024:
+				TCCR1B = (1 << CS10)|(1 << CS12);
+ 2b6:	95 e0       	ldi	r25, 0x05	; 5
+ 2b8:	9e bd       	out	0x2e, r25	; 46
+			break;
+		}
+		switch (workMode)
+ 2ba:	2c 30       	cpi	r18, 0x0C	; 12
+ 2bc:	e1 f1       	breq	.+120    	; 0x336 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x22c>
+ 2be:	28 f4       	brcc	.+10     	; 0x2ca <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1c0>
+ 2c0:	24 30       	cpi	r18, 0x04	; 4
+ 2c2:	41 f1       	breq	.+80     	; 0x314 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x20a>
+ 2c4:	2b 30       	cpi	r18, 0x0B	; 11
+ 2c6:	b9 f0       	breq	.+46     	; 0x2f6 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1ec>
+ 2c8:	62 c0       	rjmp	.+196    	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+ 2ca:	23 31       	cpi	r18, 0x13	; 19
+ 2cc:	09 f4       	brne	.+2      	; 0x2d0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1c6>
+ 2ce:	45 c0       	rjmp	.+138    	; 0x35a <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x250>
+ 2d0:	24 31       	cpi	r18, 0x14	; 20
+ 2d2:	09 f4       	brne	.+2      	; 0x2d6 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1cc>
+ 2d4:	4e c0       	rjmp	.+156    	; 0x372 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x268>
+ 2d6:	22 31       	cpi	r18, 0x12	; 18
+ 2d8:	09 f0       	breq	.+2      	; 0x2dc <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1d2>
+ 2da:	59 c0       	rjmp	.+178    	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+		{
+			case Disconnenct:
+			TCCR1A &= ~(1 << COM1B0);
+ 2dc:	8f b5       	in	r24, 0x2f	; 47
+ 2de:	8f 7e       	andi	r24, 0xEF	; 239
+ 2e0:	8f bd       	out	0x2f, r24	; 47
+			TCCR1A &= ~(1 << COM1B1);
+ 2e2:	8f b5       	in	r24, 0x2f	; 47
+ 2e4:	8f 7d       	andi	r24, 0xDF	; 223
+ 2e6:	8f bd       	out	0x2f, r24	; 47
+			TCCR1A &= ~(1 << COM1A0);
+ 2e8:	8f b5       	in	r24, 0x2f	; 47
+ 2ea:	8f 7b       	andi	r24, 0xBF	; 191
+ 2ec:	8f bd       	out	0x2f, r24	; 47
+			TCCR1A &= ~(1 << COM1A1);
+ 2ee:	8f b5       	in	r24, 0x2f	; 47
+ 2f0:	8f 77       	andi	r24, 0x7F	; 127
+ 2f2:	8f bd       	out	0x2f, r24	; 47
+			break;
+ 2f4:	4c c0       	rjmp	.+152    	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			case Toggle:
+			if (waveFormGeneration == CTC_ChannelA || waveFormGeneration == Normal_ChannelA)
+ 2f6:	85 31       	cpi	r24, 0x15	; 21
+ 2f8:	21 f4       	brne	.+8      	; 0x302 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x1f8>
+			{
+				TCCR1A |= (1 << COM1A0);
+ 2fa:	8f b5       	in	r24, 0x2f	; 47
+ 2fc:	80 64       	ori	r24, 0x40	; 64
+ 2fe:	8f bd       	out	0x2f, r24	; 47
+ 300:	46 c0       	rjmp	.+140    	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			}
+			else if (waveFormGeneration == CTC_ChannelB || waveFormGeneration == Normal_ChannelB)
+ 302:	88 ee       	ldi	r24, 0xE8	; 232
+ 304:	8b 0d       	add	r24, r11
+ 306:	82 30       	cpi	r24, 0x02	; 2
+ 308:	08 f0       	brcs	.+2      	; 0x30c <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x202>
+ 30a:	41 c0       	rjmp	.+130    	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			{
+				TCCR1A |= (1 << COM1B0);
+ 30c:	8f b5       	in	r24, 0x2f	; 47
+ 30e:	80 61       	ori	r24, 0x10	; 16
+ 310:	8f bd       	out	0x2f, r24	; 47
+ 312:	3d c0       	rjmp	.+122    	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			}
+			break;
+			case Clear:
+			if (waveFormGeneration == CTC_ChannelA || waveFormGeneration == Normal_ChannelA || waveFormGeneration == PhaseAndFrequensyCorrectPWM_ChannelA)
+ 314:	85 31       	cpi	r24, 0x15	; 21
+ 316:	19 f0       	breq	.+6      	; 0x31e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x214>
+ 318:	8d e0       	ldi	r24, 0x0D	; 13
+ 31a:	b8 12       	cpse	r11, r24
+ 31c:	04 c0       	rjmp	.+8      	; 0x326 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x21c>
+			{
+				TCCR1A |= (1 << COM1A1);
+ 31e:	8f b5       	in	r24, 0x2f	; 47
+ 320:	80 68       	ori	r24, 0x80	; 128
+ 322:	8f bd       	out	0x2f, r24	; 47
+ 324:	34 c0       	rjmp	.+104    	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			}
+			else if (waveFormGeneration == CTC_ChannelB || waveFormGeneration == Normal_ChannelB)
+ 326:	88 ee       	ldi	r24, 0xE8	; 232
+ 328:	8b 0d       	add	r24, r11
+ 32a:	82 30       	cpi	r24, 0x02	; 2
+ 32c:	80 f5       	brcc	.+96     	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			{
+				TCCR1A |= (1 << COM1B1);
+ 32e:	8f b5       	in	r24, 0x2f	; 47
+ 330:	80 62       	ori	r24, 0x20	; 32
+ 332:	8f bd       	out	0x2f, r24	; 47
+ 334:	2c c0       	rjmp	.+88     	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			}
+			break;
+			case Set:
+			if (waveFormGeneration == CTC_ChannelA || waveFormGeneration == Normal_ChannelA || waveFormGeneration == PhaseAndFrequensyCorrectPWM_ChannelA)
+ 336:	85 31       	cpi	r24, 0x15	; 21
+ 338:	19 f0       	breq	.+6      	; 0x340 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x236>
+ 33a:	9d e0       	ldi	r25, 0x0D	; 13
+ 33c:	b9 12       	cpse	r11, r25
+ 33e:	03 c0       	rjmp	.+6      	; 0x346 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x23c>
+			{
+				TCCR1A = (1 << COM1A0)|(1 << COM1A1);
+ 340:	80 ec       	ldi	r24, 0xC0	; 192
+ 342:	8f bd       	out	0x2f, r24	; 47
+ 344:	24 c0       	rjmp	.+72     	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			}
+			else if (waveFormGeneration == CTC_ChannelB || waveFormGeneration == Normal_ChannelB || waveFormGeneration == PhaseAndFrequensyCorrectPWM_ChannelB)
+ 346:	88 ee       	ldi	r24, 0xE8	; 232
+ 348:	8b 0d       	add	r24, r11
+ 34a:	82 30       	cpi	r24, 0x02	; 2
+ 34c:	18 f0       	brcs	.+6      	; 0x354 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x24a>
+ 34e:	86 e1       	ldi	r24, 0x16	; 22
+ 350:	b8 12       	cpse	r11, r24
+ 352:	1d c0       	rjmp	.+58     	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			{
+				TCCR1A = (1 << COM1B0)|(1 << COM1B1);
+ 354:	80 e3       	ldi	r24, 0x30	; 48
+ 356:	8f bd       	out	0x2f, r24	; 47
+ 358:	1a c0       	rjmp	.+52     	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			}
+			break;
+			case Inverted:
+			if (waveFormGeneration == FastPWM_ChannelA)
+ 35a:	9a e1       	ldi	r25, 0x1A	; 26
+ 35c:	b9 12       	cpse	r11, r25
+ 35e:	03 c0       	rjmp	.+6      	; 0x366 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x25c>
+			{
+				TCCR1A = (1 << COM1A0)|(1 << COM1A1);
+ 360:	80 ec       	ldi	r24, 0xC0	; 192
+ 362:	8f bd       	out	0x2f, r24	; 47
+ 364:	77 c0       	rjmp	.+238    	; 0x454 <__LOCK_REGION_LENGTH__+0x54>
+			}
+			else if (waveFormGeneration == FastPWM_ChannelB)
+ 366:	8b e1       	ldi	r24, 0x1B	; 27
+ 368:	b8 12       	cpse	r11, r24
+ 36a:	11 c0       	rjmp	.+34     	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			{
+				TCCR1A = (1 << COM1B0)|(1 << COM1B1);
+ 36c:	80 e3       	ldi	r24, 0x30	; 48
+ 36e:	8f bd       	out	0x2f, r24	; 47
+ 370:	83 c0       	rjmp	.+262    	; 0x478 <__LOCK_REGION_LENGTH__+0x78>
+			}
+			break;
+			case NonInverted:
+			if (waveFormGeneration == FastPWM_ChannelA)
+ 372:	9a e1       	ldi	r25, 0x1A	; 26
+ 374:	b9 12       	cpse	r11, r25
+ 376:	04 c0       	rjmp	.+8      	; 0x380 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x276>
+			{
+				TCCR1A |= (1 << COM1A1);
+ 378:	8f b5       	in	r24, 0x2f	; 47
+ 37a:	80 68       	ori	r24, 0x80	; 128
+ 37c:	8f bd       	out	0x2f, r24	; 47
+ 37e:	6a c0       	rjmp	.+212    	; 0x454 <__LOCK_REGION_LENGTH__+0x54>
+			}
+			else if (waveFormGeneration == FastPWM_ChannelB)
+ 380:	8b e1       	ldi	r24, 0x1B	; 27
+ 382:	b8 12       	cpse	r11, r24
+ 384:	04 c0       	rjmp	.+8      	; 0x38e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x284>
+			{
+				TCCR1A |= (1 << COM1B1);
+ 386:	8f b5       	in	r24, 0x2f	; 47
+ 388:	80 62       	ori	r24, 0x20	; 32
+ 38a:	8f bd       	out	0x2f, r24	; 47
+ 38c:	75 c0       	rjmp	.+234    	; 0x478 <__LOCK_REGION_LENGTH__+0x78>
+			}
+			break;
+		}
+		switch (waveFormGeneration)
+ 38e:	8b 2d       	mov	r24, r11
+ 390:	90 e0       	ldi	r25, 0x00	; 0
+ 392:	fc 01       	movw	r30, r24
+ 394:	32 97       	sbiw	r30, 0x02	; 2
+ 396:	ea 31       	cpi	r30, 0x1A	; 26
+ 398:	f1 05       	cpc	r31, r1
+ 39a:	08 f0       	brcs	.+2      	; 0x39e <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x294>
+ 39c:	7e c0       	rjmp	.+252    	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+ 39e:	e6 5d       	subi	r30, 0xD6	; 214
+ 3a0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3a2:	0c 94 26 03 	jmp	0x64c	; 0x64c <__tablejump2__>
+		{
+			case Normal_ChannelA:
+			TCNT1 = initialValue;
+ 3a6:	fd bc       	out	0x2d, r15	; 45
+ 3a8:	ec bc       	out	0x2c, r14	; 44
+			OCR1A = specificValue;
+ 3aa:	db bc       	out	0x2b, r13	; 43
+ 3ac:	ca bc       	out	0x2a, r12	; 42
+			while((TIFR & (1 << TOV1)) == 0);
+ 3ae:	08 b6       	in	r0, 0x38	; 56
+ 3b0:	02 fe       	sbrs	r0, 2
+ 3b2:	fd cf       	rjmp	.-6      	; 0x3ae <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x2a4>
+			TIFR |= (1 << TOV1);
+ 3b4:	88 b7       	in	r24, 0x38	; 56
+ 3b6:	84 60       	ori	r24, 0x04	; 4
+ 3b8:	88 bf       	out	0x38, r24	; 56
+			break;
+ 3ba:	6f c0       	rjmp	.+222    	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+			case Normal_ChannelB:
+			TCNT1 = initialValue;
+ 3bc:	fd bc       	out	0x2d, r15	; 45
+ 3be:	ec bc       	out	0x2c, r14	; 44
+			OCR1B = specificValue;
+ 3c0:	d9 bc       	out	0x29, r13	; 41
+ 3c2:	c8 bc       	out	0x28, r12	; 40
+			while((TIFR & (1 << TOV1)) == 0);
+ 3c4:	08 b6       	in	r0, 0x38	; 56
+ 3c6:	02 fe       	sbrs	r0, 2
+ 3c8:	fd cf       	rjmp	.-6      	; 0x3c4 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x2ba>
+			TIFR |= (1 << TOV1);
+ 3ca:	88 b7       	in	r24, 0x38	; 56
+ 3cc:	84 60       	ori	r24, 0x04	; 4
+ 3ce:	88 bf       	out	0x38, r24	; 56
+			break;
+ 3d0:	64 c0       	rjmp	.+200    	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+			case CTC_ChannelA:
+			TCNT1 = initialValue;
+ 3d2:	fd bc       	out	0x2d, r15	; 45
+ 3d4:	ec bc       	out	0x2c, r14	; 44
+			OCR1A = specificValue;
+ 3d6:	db bc       	out	0x2b, r13	; 43
+ 3d8:	ca bc       	out	0x2a, r12	; 42
+			TCCR1B |= (1 << WGM12);
+ 3da:	8e b5       	in	r24, 0x2e	; 46
+ 3dc:	88 60       	ori	r24, 0x08	; 8
+ 3de:	8e bd       	out	0x2e, r24	; 46
+			while ((TIFR & (1 << OCF1A)) == 0);
+ 3e0:	08 b6       	in	r0, 0x38	; 56
+ 3e2:	04 fe       	sbrs	r0, 4
+ 3e4:	fd cf       	rjmp	.-6      	; 0x3e0 <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x2d6>
+			TIFR |= (1 << OCF1A);
+ 3e6:	88 b7       	in	r24, 0x38	; 56
+ 3e8:	80 61       	ori	r24, 0x10	; 16
+ 3ea:	88 bf       	out	0x38, r24	; 56
+			break;
+ 3ec:	56 c0       	rjmp	.+172    	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+			case CTC_ChannelB:
+			TCNT1 = initialValue;
+ 3ee:	fd bc       	out	0x2d, r15	; 45
+ 3f0:	ec bc       	out	0x2c, r14	; 44
+			OCR1B = specificValue;
+ 3f2:	d9 bc       	out	0x29, r13	; 41
+ 3f4:	c8 bc       	out	0x28, r12	; 40
+			TCCR1B = (1 << WGM12);
+ 3f6:	88 e0       	ldi	r24, 0x08	; 8
+ 3f8:	8e bd       	out	0x2e, r24	; 46
+			while ((TIFR & (1 << OCF1B)) == 0);
+ 3fa:	08 b6       	in	r0, 0x38	; 56
+ 3fc:	03 fe       	sbrs	r0, 3
+ 3fe:	fd cf       	rjmp	.-6      	; 0x3fa <_ZN2TC9TimerModeE14PhraseVariableS0_S0_jjjbb+0x2f0>
+			TIFR |= (1 << OCF1B);
+ 400:	88 b7       	in	r24, 0x38	; 56
+ 402:	88 60       	ori	r24, 0x08	; 8
+ 404:	88 bf       	out	0x38, r24	; 56
+			break;
+ 406:	49 c0       	rjmp	.+146    	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+			case PhaseCorrectPWM_ChannelA:
+			TCCR1A = (1 << WGM10)|(1 << WGM11);
+ 408:	83 e0       	ldi	r24, 0x03	; 3
+ 40a:	8f bd       	out	0x2f, r24	; 47
+			TCCR1B |= (1 << WGM13);
+ 40c:	8e b5       	in	r24, 0x2e	; 46
+ 40e:	80 61       	ori	r24, 0x10	; 16
+ 410:	8e bd       	out	0x2e, r24	; 46
+			OCR1A = (specificValue * 65536) / 100;
+ 412:	c6 01       	movw	r24, r12
+ 414:	a0 e0       	ldi	r26, 0x00	; 0
+ 416:	b0 e0       	ldi	r27, 0x00	; 0
+ 418:	77 27       	eor	r23, r23
+ 41a:	66 27       	eor	r22, r22
+ 41c:	24 e6       	ldi	r18, 0x64	; 100
+ 41e:	30 e0       	ldi	r19, 0x00	; 0
+ 420:	40 e0       	ldi	r20, 0x00	; 0
+ 422:	50 e0       	ldi	r21, 0x00	; 0
+ 424:	0e 94 07 03 	call	0x60e	; 0x60e <__divmodsi4>
+ 428:	3b bd       	out	0x2b, r19	; 43
+ 42a:	2a bd       	out	0x2a, r18	; 42
+			break;
+ 42c:	36 c0       	rjmp	.+108    	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+			case PhaseCorrectPWM_ChannelB:
+			TCCR1A = (1 << WGM10)|(1 << WGM11);
+ 42e:	83 e0       	ldi	r24, 0x03	; 3
+ 430:	8f bd       	out	0x2f, r24	; 47
+			TCCR1B |= (1 << WGM13);
+ 432:	8e b5       	in	r24, 0x2e	; 46
+ 434:	80 61       	ori	r24, 0x10	; 16
+ 436:	8e bd       	out	0x2e, r24	; 46
+			OCR1B = (specificValue * 65536) / 100;
+ 438:	c6 01       	movw	r24, r12
+ 43a:	a0 e0       	ldi	r26, 0x00	; 0
+ 43c:	b0 e0       	ldi	r27, 0x00	; 0
+ 43e:	77 27       	eor	r23, r23
+ 440:	66 27       	eor	r22, r22
+ 442:	24 e6       	ldi	r18, 0x64	; 100
+ 444:	30 e0       	ldi	r19, 0x00	; 0
+ 446:	40 e0       	ldi	r20, 0x00	; 0
+ 448:	50 e0       	ldi	r21, 0x00	; 0
+ 44a:	0e 94 07 03 	call	0x60e	; 0x60e <__divmodsi4>
+ 44e:	39 bd       	out	0x29, r19	; 41
+ 450:	28 bd       	out	0x28, r18	; 40
+			break;
+ 452:	23 c0       	rjmp	.+70     	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+			case FastPWM_ChannelA:
+			TCCR1A = (1 << WGM10)|(1 << WGM11);
+ 454:	83 e0       	ldi	r24, 0x03	; 3
+ 456:	8f bd       	out	0x2f, r24	; 47
+			TCCR1B = (1 << WGM12)|(1 << WGM13);
+ 458:	88 e1       	ldi	r24, 0x18	; 24
+ 45a:	8e bd       	out	0x2e, r24	; 46
+			OCR1A = (specificValue * 65536) / 100;
+ 45c:	c6 01       	movw	r24, r12
+ 45e:	a0 e0       	ldi	r26, 0x00	; 0
+ 460:	b0 e0       	ldi	r27, 0x00	; 0
+ 462:	77 27       	eor	r23, r23
+ 464:	66 27       	eor	r22, r22
+ 466:	24 e6       	ldi	r18, 0x64	; 100
+ 468:	30 e0       	ldi	r19, 0x00	; 0
+ 46a:	40 e0       	ldi	r20, 0x00	; 0
+ 46c:	50 e0       	ldi	r21, 0x00	; 0
+ 46e:	0e 94 07 03 	call	0x60e	; 0x60e <__divmodsi4>
+ 472:	3b bd       	out	0x2b, r19	; 43
+ 474:	2a bd       	out	0x2a, r18	; 42
+			break;
+ 476:	11 c0       	rjmp	.+34     	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+			case FastPWM_ChannelB:
+			TCCR1A = (1 << WGM10)|(1 << WGM11);
+ 478:	83 e0       	ldi	r24, 0x03	; 3
+ 47a:	8f bd       	out	0x2f, r24	; 47
+			TCCR1B = (1 << WGM12)|(1 << WGM13);
+ 47c:	88 e1       	ldi	r24, 0x18	; 24
+ 47e:	8e bd       	out	0x2e, r24	; 46
+			OCR1B = (specificValue * 65536) / 100;
+ 480:	c6 01       	movw	r24, r12
+ 482:	a0 e0       	ldi	r26, 0x00	; 0
+ 484:	b0 e0       	ldi	r27, 0x00	; 0
+ 486:	77 27       	eor	r23, r23
+ 488:	66 27       	eor	r22, r22
+ 48a:	24 e6       	ldi	r18, 0x64	; 100
+ 48c:	30 e0       	ldi	r19, 0x00	; 0
+ 48e:	40 e0       	ldi	r20, 0x00	; 0
+ 490:	50 e0       	ldi	r21, 0x00	; 0
+ 492:	0e 94 07 03 	call	0x60e	; 0x60e <__divmodsi4>
+ 496:	39 bd       	out	0x29, r19	; 41
+ 498:	28 bd       	out	0x28, r18	; 40
+			break;
+		}
+		if (timerOverFlowinterrupt)
+ 49a:	aa 20       	and	r10, r10
+ 49c:	21 f0       	breq	.+8      	; 0x4a6 <__LOCK_REGION_LENGTH__+0xa6>
+		{
+			sei();
+ 49e:	78 94       	sei
+			TIMSK |= (1 << TOIE1);
+ 4a0:	89 b7       	in	r24, 0x39	; 57
+ 4a2:	84 60       	ori	r24, 0x04	; 4
+ 4a4:	89 bf       	out	0x39, r24	; 57
+		}
+		if (timerCompareInterrupt)
+ 4a6:	88 20       	and	r8, r8
+ 4a8:	09 f4       	brne	.+2      	; 0x4ac <__LOCK_REGION_LENGTH__+0xac>
+ 4aa:	a5 c0       	rjmp	.+330    	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+		{
+			sei();
+ 4ac:	78 94       	sei
+			switch (waveFormGeneration)
+ 4ae:	95 e1       	ldi	r25, 0x15	; 21
+ 4b0:	b9 16       	cp	r11, r25
+ 4b2:	21 f0       	breq	.+8      	; 0x4bc <__LOCK_REGION_LENGTH__+0xbc>
+ 4b4:	89 e1       	ldi	r24, 0x19	; 25
+ 4b6:	b8 16       	cp	r11, r24
+ 4b8:	29 f0       	breq	.+10     	; 0x4c4 <__LOCK_REGION_LENGTH__+0xc4>
+ 4ba:	9d c0       	rjmp	.+314    	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+			{
+				case CTC_ChannelA:
+				TIMSK |= (1 << OCIE1A);
+ 4bc:	89 b7       	in	r24, 0x39	; 57
+ 4be:	80 61       	ori	r24, 0x10	; 16
+ 4c0:	89 bf       	out	0x39, r24	; 57
+				break;
+ 4c2:	99 c0       	rjmp	.+306    	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+				case CTC_ChannelB:
+				TIMSK |= (1 << OCIE1B);
+ 4c4:	89 b7       	in	r24, 0x39	; 57
+ 4c6:	88 60       	ori	r24, 0x08	; 8
+ 4c8:	89 bf       	out	0x39, r24	; 57
+				break;
+ 4ca:	95 c0       	rjmp	.+298    	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+		break;
+		
+//----------------Timer2---------------------:
+		
+		case Timer2:
+		DDRD |= (1 << PD7);
+ 4cc:	8f 9a       	sbi	0x11, 7	; 17
+		switch (preScaler)
+ 4ce:	00 34       	cpi	r16, 0x40	; 64
+ 4d0:	11 05       	cpc	r17, r1
+ 4d2:	c1 f0       	breq	.+48     	; 0x504 <__LOCK_REGION_LENGTH__+0x104>
+ 4d4:	38 f4       	brcc	.+14     	; 0x4e4 <__LOCK_REGION_LENGTH__+0xe4>
+ 4d6:	01 30       	cpi	r16, 0x01	; 1
+ 4d8:	11 05       	cpc	r17, r1
+ 4da:	61 f0       	breq	.+24     	; 0x4f4 <__LOCK_REGION_LENGTH__+0xf4>
+ 4dc:	08 30       	cpi	r16, 0x08	; 8
+ 4de:	11 05       	cpc	r17, r1
+ 4e0:	69 f0       	breq	.+26     	; 0x4fc <__LOCK_REGION_LENGTH__+0xfc>
+ 4e2:	19 c0       	rjmp	.+50     	; 0x516 <__LOCK_REGION_LENGTH__+0x116>
+ 4e4:	01 15       	cp	r16, r1
+ 4e6:	91 e0       	ldi	r25, 0x01	; 1
+ 4e8:	19 07       	cpc	r17, r25
+ 4ea:	79 f0       	breq	.+30     	; 0x50a <__LOCK_REGION_LENGTH__+0x10a>
+ 4ec:	01 15       	cp	r16, r1
+ 4ee:	14 40       	sbci	r17, 0x04	; 4
+ 4f0:	81 f0       	breq	.+32     	; 0x512 <__LOCK_REGION_LENGTH__+0x112>
+ 4f2:	11 c0       	rjmp	.+34     	; 0x516 <__LOCK_REGION_LENGTH__+0x116>
+		{
+			case 1:
+			TCCR2 |= (1 << CS20);
+ 4f4:	85 b5       	in	r24, 0x25	; 37
+ 4f6:	81 60       	ori	r24, 0x01	; 1
+ 4f8:	85 bd       	out	0x25, r24	; 37
+			break;
+ 4fa:	0d c0       	rjmp	.+26     	; 0x516 <__LOCK_REGION_LENGTH__+0x116>
+			case 8:
+			TCCR2 |= (1 << CS21);
+ 4fc:	85 b5       	in	r24, 0x25	; 37
+ 4fe:	82 60       	ori	r24, 0x02	; 2
+ 500:	85 bd       	out	0x25, r24	; 37
+			break;
+ 502:	09 c0       	rjmp	.+18     	; 0x516 <__LOCK_REGION_LENGTH__+0x116>
+			case 64:
+			TCCR2 = (1 << CS20)|(1 << CS21);
+ 504:	83 e0       	ldi	r24, 0x03	; 3
+ 506:	85 bd       	out	0x25, r24	; 37
+			break;
+ 508:	06 c0       	rjmp	.+12     	; 0x516 <__LOCK_REGION_LENGTH__+0x116>
+			case 256:
+			TCCR2 |= (1 << CS22);
+ 50a:	85 b5       	in	r24, 0x25	; 37
+ 50c:	84 60       	ori	r24, 0x04	; 4
+ 50e:	85 bd       	out	0x25, r24	; 37
+			break;
+ 510:	02 c0       	rjmp	.+4      	; 0x516 <__LOCK_REGION_LENGTH__+0x116>
+			case 1024:
+			TCCR2 = (1 << CS20)|(1 << CS22);
+ 512:	85 e0       	ldi	r24, 0x05	; 5
+ 514:	85 bd       	out	0x25, r24	; 37
+			break;
+		}
+		switch (workMode)
+ 516:	2c 30       	cpi	r18, 0x0C	; 12
+ 518:	09 f1       	breq	.+66     	; 0x55c <__LOCK_REGION_LENGTH__+0x15c>
+ 51a:	28 f4       	brcc	.+10     	; 0x526 <__LOCK_REGION_LENGTH__+0x126>
+ 51c:	24 30       	cpi	r18, 0x04	; 4
+ 51e:	b9 f0       	breq	.+46     	; 0x54e <__LOCK_REGION_LENGTH__+0x14e>
+ 520:	2b 30       	cpi	r18, 0x0B	; 11
+ 522:	71 f0       	breq	.+28     	; 0x540 <__LOCK_REGION_LENGTH__+0x140>
+ 524:	27 c0       	rjmp	.+78     	; 0x574 <__LOCK_REGION_LENGTH__+0x174>
+ 526:	23 31       	cpi	r18, 0x13	; 19
+ 528:	e1 f0       	breq	.+56     	; 0x562 <__LOCK_REGION_LENGTH__+0x162>
+ 52a:	24 31       	cpi	r18, 0x14	; 20
+ 52c:	e9 f0       	breq	.+58     	; 0x568 <__LOCK_REGION_LENGTH__+0x168>
+ 52e:	22 31       	cpi	r18, 0x12	; 18
+ 530:	09 f5       	brne	.+66     	; 0x574 <__LOCK_REGION_LENGTH__+0x174>
+		{
+			case Disconnenct:
+			TCCR2 &= ~(1 << COM20);
+ 532:	85 b5       	in	r24, 0x25	; 37
+ 534:	8f 7e       	andi	r24, 0xEF	; 239
+ 536:	85 bd       	out	0x25, r24	; 37
+			TCCR2 &= ~(1 << COM21);
+ 538:	85 b5       	in	r24, 0x25	; 37
+ 53a:	8f 7d       	andi	r24, 0xDF	; 223
+ 53c:	85 bd       	out	0x25, r24	; 37
+			break;
+ 53e:	1a c0       	rjmp	.+52     	; 0x574 <__LOCK_REGION_LENGTH__+0x174>
+			case Toggle:
+			TCCR2 |= (1 << COM20);
+ 540:	85 b5       	in	r24, 0x25	; 37
+ 542:	80 61       	ori	r24, 0x10	; 16
+ 544:	85 bd       	out	0x25, r24	; 37
+			TCCR2 &= ~(1 << COM21);
+ 546:	85 b5       	in	r24, 0x25	; 37
+ 548:	8f 7d       	andi	r24, 0xDF	; 223
+ 54a:	85 bd       	out	0x25, r24	; 37
+			break;
+ 54c:	13 c0       	rjmp	.+38     	; 0x574 <__LOCK_REGION_LENGTH__+0x174>
+			case Clear:
+			TCCR2 &= ~(1 << COM20);
+ 54e:	85 b5       	in	r24, 0x25	; 37
+ 550:	8f 7e       	andi	r24, 0xEF	; 239
+ 552:	85 bd       	out	0x25, r24	; 37
+			TCCR2 |= (1 << COM21);
+ 554:	85 b5       	in	r24, 0x25	; 37
+ 556:	80 62       	ori	r24, 0x20	; 32
+ 558:	85 bd       	out	0x25, r24	; 37
+			break;
+ 55a:	0c c0       	rjmp	.+24     	; 0x574 <__LOCK_REGION_LENGTH__+0x174>
+			case Set:
+			TCCR2 = (1 << COM20)|(1 << COM21);
+ 55c:	80 e3       	ldi	r24, 0x30	; 48
+ 55e:	85 bd       	out	0x25, r24	; 37
+			break;
+ 560:	09 c0       	rjmp	.+18     	; 0x574 <__LOCK_REGION_LENGTH__+0x174>
+			case Inverted:
+			TCCR2 = (1 << COM20)|(1 << COM21);
+ 562:	80 e3       	ldi	r24, 0x30	; 48
+ 564:	85 bd       	out	0x25, r24	; 37
+			break;
+ 566:	06 c0       	rjmp	.+12     	; 0x574 <__LOCK_REGION_LENGTH__+0x174>
+			case NonInverted:
+			TCCR2 |= (1 << COM21);
+ 568:	85 b5       	in	r24, 0x25	; 37
+ 56a:	80 62       	ori	r24, 0x20	; 32
+ 56c:	85 bd       	out	0x25, r24	; 37
+			TCCR2 &= ~(1 << COM20);
+ 56e:	85 b5       	in	r24, 0x25	; 37
+ 570:	8f 7e       	andi	r24, 0xEF	; 239
+ 572:	85 bd       	out	0x25, r24	; 37
+			break;
+		}
+		switch (waveFormGeneration)
+ 574:	91 e0       	ldi	r25, 0x01	; 1
+ 576:	b9 16       	cp	r11, r25
+ 578:	91 f0       	breq	.+36     	; 0x59e <__LOCK_REGION_LENGTH__+0x19e>
+ 57a:	b9 16       	cp	r11, r25
+ 57c:	38 f0       	brcs	.+14     	; 0x58c <__LOCK_REGION_LENGTH__+0x18c>
+ 57e:	85 e0       	ldi	r24, 0x05	; 5
+ 580:	b8 16       	cp	r11, r24
+ 582:	e9 f0       	breq	.+58     	; 0x5be <__LOCK_REGION_LENGTH__+0x1be>
+ 584:	9e e0       	ldi	r25, 0x0E	; 14
+ 586:	b9 16       	cp	r11, r25
+ 588:	b1 f0       	breq	.+44     	; 0x5b6 <__LOCK_REGION_LENGTH__+0x1b6>
+ 58a:	29 c0       	rjmp	.+82     	; 0x5de <__LOCK_REGION_LENGTH__+0x1de>
+		{
+			case Normal:
+			TCNT2 = initialValue;
+ 58c:	e4 bc       	out	0x24, r14	; 36
+			OCR2 = specificValue;
+ 58e:	c3 bc       	out	0x23, r12	; 35
+			while((TIFR & (1 << TOV2)) == 0);
+ 590:	08 b6       	in	r0, 0x38	; 56
+ 592:	06 fe       	sbrs	r0, 6
+ 594:	fd cf       	rjmp	.-6      	; 0x590 <__LOCK_REGION_LENGTH__+0x190>
+			TIFR |= (1 << TOV2);
+ 596:	88 b7       	in	r24, 0x38	; 56
+ 598:	80 64       	ori	r24, 0x40	; 64
+ 59a:	88 bf       	out	0x38, r24	; 56
+			break;
+ 59c:	20 c0       	rjmp	.+64     	; 0x5de <__LOCK_REGION_LENGTH__+0x1de>
+			case CTC:
+			TCNT2 = initialValue;
+ 59e:	e4 bc       	out	0x24, r14	; 36
+			OCR2 = specificValue;
+ 5a0:	c3 bc       	out	0x23, r12	; 35
+			TCCR2 |= (1 << WGM21);
+ 5a2:	85 b5       	in	r24, 0x25	; 37
+ 5a4:	88 60       	ori	r24, 0x08	; 8
+ 5a6:	85 bd       	out	0x25, r24	; 37
+			while ((TIFR & (1 << OCF2)) == 0);
+ 5a8:	08 b6       	in	r0, 0x38	; 56
+ 5aa:	07 fe       	sbrs	r0, 7
+ 5ac:	fd cf       	rjmp	.-6      	; 0x5a8 <__LOCK_REGION_LENGTH__+0x1a8>
+			TIFR |= (1 << OCF2);
+ 5ae:	88 b7       	in	r24, 0x38	; 56
+ 5b0:	80 68       	ori	r24, 0x80	; 128
+ 5b2:	88 bf       	out	0x38, r24	; 56
+			break;
+ 5b4:	14 c0       	rjmp	.+40     	; 0x5de <__LOCK_REGION_LENGTH__+0x1de>
+			case PhaseCorrectPWM:
+			TCCR2 |= (1 << WGM20);
+ 5b6:	85 b5       	in	r24, 0x25	; 37
+ 5b8:	80 64       	ori	r24, 0x40	; 64
+ 5ba:	85 bd       	out	0x25, r24	; 37
+			break;
+ 5bc:	10 c0       	rjmp	.+32     	; 0x5de <__LOCK_REGION_LENGTH__+0x1de>
+			case FastPWM:
+			TCCR2 = (1 << WGM20)|(1 << WGM21);
+ 5be:	88 e4       	ldi	r24, 0x48	; 72
+ 5c0:	85 bd       	out	0x25, r24	; 37
+			OCR2 = (specificValue * 256) / 100;
+ 5c2:	dc 2c       	mov	r13, r12
+ 5c4:	cc 24       	eor	r12, r12
+ 5c6:	96 01       	movw	r18, r12
+ 5c8:	36 95       	lsr	r19
+ 5ca:	27 95       	ror	r18
+ 5cc:	36 95       	lsr	r19
+ 5ce:	27 95       	ror	r18
+ 5d0:	ab e7       	ldi	r26, 0x7B	; 123
+ 5d2:	b4 e1       	ldi	r27, 0x14	; 20
+ 5d4:	0e 94 2c 03 	call	0x658	; 0x658 <__umulhisi3>
+ 5d8:	96 95       	lsr	r25
+ 5da:	87 95       	ror	r24
+ 5dc:	83 bd       	out	0x23, r24	; 35
+			break;
+		}
+		if (timerOverFlowinterrupt)
+ 5de:	aa 20       	and	r10, r10
+ 5e0:	21 f0       	breq	.+8      	; 0x5ea <__LOCK_REGION_LENGTH__+0x1ea>
+		{
+			sei();
+ 5e2:	78 94       	sei
+			TIMSK |= (1 << TOIE2);
+ 5e4:	89 b7       	in	r24, 0x39	; 57
+ 5e6:	80 64       	ori	r24, 0x40	; 64
+ 5e8:	89 bf       	out	0x39, r24	; 57
+		}
+		if (timerCompareInterrupt)
+ 5ea:	88 20       	and	r8, r8
+ 5ec:	21 f0       	breq	.+8      	; 0x5f6 <__LOCK_REGION_LENGTH__+0x1f6>
+		{
+			sei();
+ 5ee:	78 94       	sei
+			TIMSK |= (1 << OCIE2);
+ 5f0:	89 b7       	in	r24, 0x39	; 57
+ 5f2:	80 68       	ori	r24, 0x80	; 128
+ 5f4:	89 bf       	out	0x39, r24	; 57
+		}
+		break;
+	}
+}
+ 5f6:	df 91       	pop	r29
+ 5f8:	cf 91       	pop	r28
+ 5fa:	1f 91       	pop	r17
+ 5fc:	0f 91       	pop	r16
+ 5fe:	ff 90       	pop	r15
+ 600:	ef 90       	pop	r14
+ 602:	df 90       	pop	r13
+ 604:	cf 90       	pop	r12
+ 606:	bf 90       	pop	r11
+ 608:	af 90       	pop	r10
+ 60a:	8f 90       	pop	r8
+ 60c:	08 95       	ret
+
+0000060e <__divmodsi4>:
+ 60e:	05 2e       	mov	r0, r21
+ 610:	97 fb       	bst	r25, 7
+ 612:	1e f4       	brtc	.+6      	; 0x61a <__divmodsi4+0xc>
+ 614:	00 94       	com	r0
+ 616:	0e 94 1e 03 	call	0x63c	; 0x63c <__negsi2>
+ 61a:	57 fd       	sbrc	r21, 7
+ 61c:	07 d0       	rcall	.+14     	; 0x62c <__divmodsi4_neg2>
+ 61e:	0e 94 3b 03 	call	0x676	; 0x676 <__udivmodsi4>
+ 622:	07 fc       	sbrc	r0, 7
+ 624:	03 d0       	rcall	.+6      	; 0x62c <__divmodsi4_neg2>
+ 626:	4e f4       	brtc	.+18     	; 0x63a <__divmodsi4_exit>
+ 628:	0c 94 1e 03 	jmp	0x63c	; 0x63c <__negsi2>
+
+0000062c <__divmodsi4_neg2>:
+ 62c:	50 95       	com	r21
+ 62e:	40 95       	com	r20
+ 630:	30 95       	com	r19
+ 632:	21 95       	neg	r18
+ 634:	3f 4f       	sbci	r19, 0xFF	; 255
+ 636:	4f 4f       	sbci	r20, 0xFF	; 255
+ 638:	5f 4f       	sbci	r21, 0xFF	; 255
+
+0000063a <__divmodsi4_exit>:
+ 63a:	08 95       	ret
+
+0000063c <__negsi2>:
+ 63c:	90 95       	com	r25
+ 63e:	80 95       	com	r24
+ 640:	70 95       	com	r23
+ 642:	61 95       	neg	r22
+ 644:	7f 4f       	sbci	r23, 0xFF	; 255
+ 646:	8f 4f       	sbci	r24, 0xFF	; 255
+ 648:	9f 4f       	sbci	r25, 0xFF	; 255
+ 64a:	08 95       	ret
+
+0000064c <__tablejump2__>:
+ 64c:	ee 0f       	add	r30, r30
+ 64e:	ff 1f       	adc	r31, r31
+ 650:	05 90       	lpm	r0, Z+
+ 652:	f4 91       	lpm	r31, Z
+ 654:	e0 2d       	mov	r30, r0
+ 656:	09 94       	ijmp
+
+00000658 <__umulhisi3>:
+ 658:	a2 9f       	mul	r26, r18
+ 65a:	b0 01       	movw	r22, r0
+ 65c:	b3 9f       	mul	r27, r19
+ 65e:	c0 01       	movw	r24, r0
+ 660:	a3 9f       	mul	r26, r19
+ 662:	70 0d       	add	r23, r0
+ 664:	81 1d       	adc	r24, r1
+ 666:	11 24       	eor	r1, r1
+ 668:	91 1d       	adc	r25, r1
+ 66a:	b2 9f       	mul	r27, r18
+ 66c:	70 0d       	add	r23, r0
+ 66e:	81 1d       	adc	r24, r1
+ 670:	11 24       	eor	r1, r1
+ 672:	91 1d       	adc	r25, r1
+ 674:	08 95       	ret
+
+00000676 <__udivmodsi4>:
+ 676:	a1 e2       	ldi	r26, 0x21	; 33
+ 678:	1a 2e       	mov	r1, r26
+ 67a:	aa 1b       	sub	r26, r26
+ 67c:	bb 1b       	sub	r27, r27
+ 67e:	fd 01       	movw	r30, r26
+ 680:	0d c0       	rjmp	.+26     	; 0x69c <__udivmodsi4_ep>
+
+00000682 <__udivmodsi4_loop>:
+ 682:	aa 1f       	adc	r26, r26
+ 684:	bb 1f       	adc	r27, r27
+ 686:	ee 1f       	adc	r30, r30
+ 688:	ff 1f       	adc	r31, r31
+ 68a:	a2 17       	cp	r26, r18
+ 68c:	b3 07       	cpc	r27, r19
+ 68e:	e4 07       	cpc	r30, r20
+ 690:	f5 07       	cpc	r31, r21
+ 692:	20 f0       	brcs	.+8      	; 0x69c <__udivmodsi4_ep>
+ 694:	a2 1b       	sub	r26, r18
+ 696:	b3 0b       	sbc	r27, r19
+ 698:	e4 0b       	sbc	r30, r20
+ 69a:	f5 0b       	sbc	r31, r21
+
+0000069c <__udivmodsi4_ep>:
+ 69c:	66 1f       	adc	r22, r22
+ 69e:	77 1f       	adc	r23, r23
+ 6a0:	88 1f       	adc	r24, r24
+ 6a2:	99 1f       	adc	r25, r25
+ 6a4:	1a 94       	dec	r1
+ 6a6:	69 f7       	brne	.-38     	; 0x682 <__udivmodsi4_loop>
+ 6a8:	60 95       	com	r22
+ 6aa:	70 95       	com	r23
+ 6ac:	80 95       	com	r24
+ 6ae:	90 95       	com	r25
+ 6b0:	9b 01       	movw	r18, r22
+ 6b2:	ac 01       	movw	r20, r24
+ 6b4:	bd 01       	movw	r22, r26
+ 6b6:	cf 01       	movw	r24, r30
+ 6b8:	08 95       	ret
+
+000006ba <_exit>:
+ 6ba:	f8 94       	cli
+
+000006bc <__stop_program>:
+ 6bc:	ff cf       	rjmp	.-2      	; 0x6bc <__stop_program>

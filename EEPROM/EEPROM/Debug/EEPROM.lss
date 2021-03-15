@@ -1,0 +1,466 @@
+
+EEPROM.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000286  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  00800060  00000286  0000031a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000001  00800070  00800070  0000032a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000032a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000035c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000128  00000000  00000000  00000398  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001d8f  00000000  00000000  000004c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000087c  00000000  00000000  0000224f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000009bd  00000000  00000000  00002acb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000026c  00000000  00000000  00003488  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006d9  00000000  00000000  000036f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000156b  00000000  00000000  00003dcd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000a8  00000000  00000000  00005338  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e6 e8       	ldi	r30, 0x86	; 134
+  68:	f2 e0       	ldi	r31, 0x02	; 2
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a0 37       	cpi	r26, 0x70	; 112
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a0 e7       	ldi	r26, 0x70	; 112
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a1 37       	cpi	r26, 0x71	; 113
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 c6 00 	call	0x18c	; 0x18c <main>
+  8a:	0c 94 41 01 	jmp	0x282	; 0x282 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <_ZN13Lcd_4_BitMode10LcdCommandEh>:
+
+
+
+void Lcd_4_BitMode::LcdCommand( unsigned char cmnd )
+{
+	LCD_Port = (LCD_Port & 0x0F) | (cmnd & 0xF0);															/* sending upper nibble */
+  92:	88 b3       	in	r24, 0x18	; 24
+  94:	8f 70       	andi	r24, 0x0F	; 15
+  96:	96 2f       	mov	r25, r22
+  98:	90 7f       	andi	r25, 0xF0	; 240
+  9a:	89 2b       	or	r24, r25
+  9c:	88 bb       	out	0x18, r24	; 24
+	LCD_Port &= ~ (1<<RS);																					/* RS=0, command reg. */
+  9e:	c0 98       	cbi	0x18, 0	; 24
+	LCD_Port |= (1<<EN);																					/* Enable pulse */
+  a0:	c1 9a       	sbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  a2:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+  a4:	c1 98       	cbi	0x18, 1	; 24
+  a6:	82 e4       	ldi	r24, 0x42	; 66
+  a8:	8a 95       	dec	r24
+  aa:	f1 f7       	brne	.-4      	; 0xa8 <_ZN13Lcd_4_BitMode10LcdCommandEh+0x16>
+  ac:	00 c0       	rjmp	.+0      	; 0xae <_ZN13Lcd_4_BitMode10LcdCommandEh+0x1c>
+
+	_delay_us(200);
+
+	LCD_Port = (LCD_Port & 0x0F) | (cmnd << 4);																/* sending lower nibble */
+  ae:	88 b3       	in	r24, 0x18	; 24
+  b0:	8f 70       	andi	r24, 0x0F	; 15
+  b2:	90 e1       	ldi	r25, 0x10	; 16
+  b4:	69 9f       	mul	r22, r25
+  b6:	b0 01       	movw	r22, r0
+  b8:	11 24       	eor	r1, r1
+  ba:	68 2b       	or	r22, r24
+  bc:	68 bb       	out	0x18, r22	; 24
+	LCD_Port |= (1<<EN);
+  be:	c1 9a       	sbi	0x18, 1	; 24
+  c0:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+  c2:	c1 98       	cbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  c4:	83 ef       	ldi	r24, 0xF3	; 243
+  c6:	91 e0       	ldi	r25, 0x01	; 1
+  c8:	01 97       	sbiw	r24, 0x01	; 1
+  ca:	f1 f7       	brne	.-4      	; 0xc8 <_ZN13Lcd_4_BitMode10LcdCommandEh+0x36>
+  cc:	00 c0       	rjmp	.+0      	; 0xce <_ZN13Lcd_4_BitMode10LcdCommandEh+0x3c>
+  ce:	00 00       	nop
+  d0:	08 95       	ret
+
+000000d2 <_ZN13Lcd_4_BitMode7LcdCharEh>:
+	_delay_ms(2);
+}
+
+void Lcd_4_BitMode::LcdChar( unsigned char data )
+{
+	LCD_Port = (LCD_Port & 0x0F) | (data & 0xF0);															/* sending upper nibble */
+  d2:	88 b3       	in	r24, 0x18	; 24
+  d4:	8f 70       	andi	r24, 0x0F	; 15
+  d6:	96 2f       	mov	r25, r22
+  d8:	90 7f       	andi	r25, 0xF0	; 240
+  da:	89 2b       	or	r24, r25
+  dc:	88 bb       	out	0x18, r24	; 24
+	LCD_Port |= (1<<RS);																					/* RS=1, data reg. */
+  de:	c0 9a       	sbi	0x18, 0	; 24
+	LCD_Port|= (1<<EN);
+  e0:	c1 9a       	sbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  e2:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+  e4:	c1 98       	cbi	0x18, 1	; 24
+  e6:	82 e4       	ldi	r24, 0x42	; 66
+  e8:	8a 95       	dec	r24
+  ea:	f1 f7       	brne	.-4      	; 0xe8 <_ZN13Lcd_4_BitMode7LcdCharEh+0x16>
+  ec:	00 c0       	rjmp	.+0      	; 0xee <_ZN13Lcd_4_BitMode7LcdCharEh+0x1c>
+	_delay_us(200);
+	LCD_Port = (LCD_Port & 0x0F) | (data << 4);																/* sending lower nibble */
+  ee:	88 b3       	in	r24, 0x18	; 24
+  f0:	8f 70       	andi	r24, 0x0F	; 15
+  f2:	90 e1       	ldi	r25, 0x10	; 16
+  f4:	69 9f       	mul	r22, r25
+  f6:	b0 01       	movw	r22, r0
+  f8:	11 24       	eor	r1, r1
+  fa:	68 2b       	or	r22, r24
+  fc:	68 bb       	out	0x18, r22	; 24
+	LCD_Port |= (1<<EN);
+  fe:	c1 9a       	sbi	0x18, 1	; 24
+ 100:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+ 102:	c1 98       	cbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 104:	83 ef       	ldi	r24, 0xF3	; 243
+ 106:	91 e0       	ldi	r25, 0x01	; 1
+ 108:	01 97       	sbiw	r24, 0x01	; 1
+ 10a:	f1 f7       	brne	.-4      	; 0x108 <_ZN13Lcd_4_BitMode7LcdCharEh+0x36>
+ 10c:	00 c0       	rjmp	.+0      	; 0x10e <_ZN13Lcd_4_BitMode7LcdCharEh+0x3c>
+ 10e:	00 00       	nop
+ 110:	08 95       	ret
+
+00000112 <_ZN13Lcd_4_BitMode7LcdInitEv>:
+	_delay_ms(2);
+}
+
+void Lcd_4_BitMode::LcdInit (void)
+{
+ 112:	cf 93       	push	r28
+ 114:	df 93       	push	r29
+ 116:	ec 01       	movw	r28, r24
+	LCD_Dir = 0xFF;																							/* Make LCD port direction as o/p */
+ 118:	8f ef       	ldi	r24, 0xFF	; 255
+ 11a:	87 bb       	out	0x17, r24	; 23
+ 11c:	87 e8       	ldi	r24, 0x87	; 135
+ 11e:	93 e1       	ldi	r25, 0x13	; 19
+ 120:	01 97       	sbiw	r24, 0x01	; 1
+ 122:	f1 f7       	brne	.-4      	; 0x120 <_ZN13Lcd_4_BitMode7LcdInitEv+0xe>
+ 124:	00 c0       	rjmp	.+0      	; 0x126 <_ZN13Lcd_4_BitMode7LcdInitEv+0x14>
+ 126:	00 00       	nop
+	_delay_ms(20);																							/* LCD Power ON delay always >15ms */
+	
+	LcdCommand(0x02);																						/* send for 4 bit initialization of LCD  */
+ 128:	62 e0       	ldi	r22, 0x02	; 2
+ 12a:	ce 01       	movw	r24, r28
+ 12c:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x28);																					    /* 2 line, 5*7 matrix in 4-bit mode */
+ 130:	68 e2       	ldi	r22, 0x28	; 40
+ 132:	ce 01       	movw	r24, r28
+ 134:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x0c);																				        /* Display on cursor off*/
+ 138:	6c e0       	ldi	r22, 0x0C	; 12
+ 13a:	ce 01       	movw	r24, r28
+ 13c:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x06);																						/* Increment cursor (shift cursor to right)*/
+ 140:	66 e0       	ldi	r22, 0x06	; 6
+ 142:	ce 01       	movw	r24, r28
+ 144:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x01);																					    /* Clear display screen*/
+ 148:	61 e0       	ldi	r22, 0x01	; 1
+ 14a:	ce 01       	movw	r24, r28
+ 14c:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 150:	83 ef       	ldi	r24, 0xF3	; 243
+ 152:	91 e0       	ldi	r25, 0x01	; 1
+ 154:	01 97       	sbiw	r24, 0x01	; 1
+ 156:	f1 f7       	brne	.-4      	; 0x154 <_ZN13Lcd_4_BitMode7LcdInitEv+0x42>
+ 158:	00 c0       	rjmp	.+0      	; 0x15a <_ZN13Lcd_4_BitMode7LcdInitEv+0x48>
+ 15a:	00 00       	nop
+	_delay_ms(2);
+}
+ 15c:	df 91       	pop	r29
+ 15e:	cf 91       	pop	r28
+ 160:	08 95       	ret
+
+00000162 <_ZN13Lcd_4_BitMode9LcdStringEPc>:
+
+void Lcd_4_BitMode::LcdString (char *str)
+{
+ 162:	0f 93       	push	r16
+ 164:	1f 93       	push	r17
+ 166:	cf 93       	push	r28
+ 168:	df 93       	push	r29
+ 16a:	eb 01       	movw	r28, r22
+	int i;
+	for(i = 0 ; str[i] != 0; i ++)																			/* Send each char of string till the NULL */
+ 16c:	68 81       	ld	r22, Y
+ 16e:	66 23       	and	r22, r22
+ 170:	41 f0       	breq	.+16     	; 0x182 <_ZN13Lcd_4_BitMode9LcdStringEPc+0x20>
+ 172:	8c 01       	movw	r16, r24
+ 174:	21 96       	adiw	r28, 0x01	; 1
+	{
+		LcdChar (str[i]);
+ 176:	c8 01       	movw	r24, r16
+ 178:	0e 94 69 00 	call	0xd2	; 0xd2 <_ZN13Lcd_4_BitMode7LcdCharEh>
+}
+
+void Lcd_4_BitMode::LcdString (char *str)
+{
+	int i;
+	for(i = 0 ; str[i] != 0; i ++)																			/* Send each char of string till the NULL */
+ 17c:	69 91       	ld	r22, Y+
+ 17e:	61 11       	cpse	r22, r1
+ 180:	fa cf       	rjmp	.-12     	; 0x176 <_ZN13Lcd_4_BitMode9LcdStringEPc+0x14>
+	{
+		LcdChar (str[i]);
+	}
+}
+ 182:	df 91       	pop	r29
+ 184:	cf 91       	pop	r28
+ 186:	1f 91       	pop	r17
+ 188:	0f 91       	pop	r16
+ 18a:	08 95       	ret
+
+0000018c <main>:
+#include "Lcd 2x16.h"
+
+Lcd_4_BitMode lcd;
+
+int main(void)
+{
+ 18c:	0f 93       	push	r16
+ 18e:	1f 93       	push	r17
+ 190:	cf 93       	push	r28
+ 192:	df 93       	push	r29
+ 194:	cd b7       	in	r28, 0x3d	; 61
+ 196:	de b7       	in	r29, 0x3e	; 62
+ 198:	6e 97       	sbiw	r28, 0x1e	; 30
+ 19a:	0f b6       	in	r0, 0x3f	; 63
+ 19c:	f8 94       	cli
+ 19e:	de bf       	out	0x3e, r29	; 62
+ 1a0:	0f be       	out	0x3f, r0	; 63
+ 1a2:	cd bf       	out	0x3d, r28	; 61
+	uint8_t value;
+	value = eeprom_read_byte((const uint8_t *)64);
+	lcd.LcdInit();
+	lcd.LcdNum(value, hexadecimal);
+	*/
+	lcd.LcdInit();
+ 1a4:	80 e7       	ldi	r24, 0x70	; 112
+ 1a6:	90 e0       	ldi	r25, 0x00	; 0
+ 1a8:	0e 94 89 00 	call	0x112	; 0x112 <_ZN13Lcd_4_BitMode7LcdInitEv>
+	char yourString[15], myString[15] = "My EEPROM Test";
+ 1ac:	8f e0       	ldi	r24, 0x0F	; 15
+ 1ae:	e0 e6       	ldi	r30, 0x60	; 96
+ 1b0:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b2:	de 01       	movw	r26, r28
+ 1b4:	50 96       	adiw	r26, 0x10	; 16
+ 1b6:	01 90       	ld	r0, Z+
+ 1b8:	0d 92       	st	X+, r0
+ 1ba:	8a 95       	dec	r24
+ 1bc:	e1 f7       	brne	.-8      	; 0x1b6 <main+0x2a>
+	memset(yourString, 0, 15);
+ 1be:	fe 01       	movw	r30, r28
+ 1c0:	31 96       	adiw	r30, 0x01	; 1
+ 1c2:	8f e0       	ldi	r24, 0x0F	; 15
+ 1c4:	df 01       	movw	r26, r30
+ 1c6:	1d 92       	st	X+, r1
+ 1c8:	8a 95       	dec	r24
+ 1ca:	e9 f7       	brne	.-6      	; 0x1c6 <main+0x3a>
+	eeprom_busy_wait();
+ 1cc:	e1 99       	sbic	0x1c, 1	; 28
+ 1ce:	fe cf       	rjmp	.-4      	; 0x1cc <main+0x40>
+	eeprom_write_block(myString, 0, strlen(myString));
+ 1d0:	8e 01       	movw	r16, r28
+ 1d2:	00 5f       	subi	r16, 0xF0	; 240
+ 1d4:	1f 4f       	sbci	r17, 0xFF	; 255
+ 1d6:	f8 01       	movw	r30, r16
+ 1d8:	01 90       	ld	r0, Z+
+ 1da:	00 20       	and	r0, r0
+ 1dc:	e9 f7       	brne	.-6      	; 0x1d8 <main+0x4c>
+ 1de:	31 97       	sbiw	r30, 0x01	; 1
+ 1e0:	af 01       	movw	r20, r30
+ 1e2:	40 1b       	sub	r20, r16
+ 1e4:	51 0b       	sbc	r21, r17
+ 1e6:	60 e0       	ldi	r22, 0x00	; 0
+ 1e8:	70 e0       	ldi	r23, 0x00	; 0
+ 1ea:	c8 01       	movw	r24, r16
+ 1ec:	0e 94 2a 01 	call	0x254	; 0x254 <eeprom_write_block>
+	eeprom_read_block(yourString, 0, strlen(myString));
+ 1f0:	f8 01       	movw	r30, r16
+ 1f2:	01 90       	ld	r0, Z+
+ 1f4:	00 20       	and	r0, r0
+ 1f6:	e9 f7       	brne	.-6      	; 0x1f2 <main+0x66>
+ 1f8:	31 97       	sbiw	r30, 0x01	; 1
+ 1fa:	af 01       	movw	r20, r30
+ 1fc:	40 1b       	sub	r20, r16
+ 1fe:	51 0b       	sbc	r21, r17
+ 200:	60 e0       	ldi	r22, 0x00	; 0
+ 202:	70 e0       	ldi	r23, 0x00	; 0
+ 204:	ce 01       	movw	r24, r28
+ 206:	01 96       	adiw	r24, 0x01	; 1
+ 208:	0e 94 1a 01 	call	0x234	; 0x234 <eeprom_read_block>
+	lcd.LcdString(yourString);
+ 20c:	be 01       	movw	r22, r28
+ 20e:	6f 5f       	subi	r22, 0xFF	; 255
+ 210:	7f 4f       	sbci	r23, 0xFF	; 255
+ 212:	80 e7       	ldi	r24, 0x70	; 112
+ 214:	90 e0       	ldi	r25, 0x00	; 0
+ 216:	0e 94 b1 00 	call	0x162	; 0x162 <_ZN13Lcd_4_BitMode9LcdStringEPc>
+}
+ 21a:	80 e0       	ldi	r24, 0x00	; 0
+ 21c:	90 e0       	ldi	r25, 0x00	; 0
+ 21e:	6e 96       	adiw	r28, 0x1e	; 30
+ 220:	0f b6       	in	r0, 0x3f	; 63
+ 222:	f8 94       	cli
+ 224:	de bf       	out	0x3e, r29	; 62
+ 226:	0f be       	out	0x3f, r0	; 63
+ 228:	cd bf       	out	0x3d, r28	; 61
+ 22a:	df 91       	pop	r29
+ 22c:	cf 91       	pop	r28
+ 22e:	1f 91       	pop	r17
+ 230:	0f 91       	pop	r16
+ 232:	08 95       	ret
+
+00000234 <eeprom_read_block>:
+ 234:	dc 01       	movw	r26, r24
+ 236:	cb 01       	movw	r24, r22
+
+00000238 <eeprom_read_blraw>:
+ 238:	fc 01       	movw	r30, r24
+ 23a:	e1 99       	sbic	0x1c, 1	; 28
+ 23c:	fe cf       	rjmp	.-4      	; 0x23a <eeprom_read_blraw+0x2>
+ 23e:	06 c0       	rjmp	.+12     	; 0x24c <eeprom_read_blraw+0x14>
+ 240:	ff bb       	out	0x1f, r31	; 31
+ 242:	ee bb       	out	0x1e, r30	; 30
+ 244:	e0 9a       	sbi	0x1c, 0	; 28
+ 246:	31 96       	adiw	r30, 0x01	; 1
+ 248:	0d b2       	in	r0, 0x1d	; 29
+ 24a:	0d 92       	st	X+, r0
+ 24c:	41 50       	subi	r20, 0x01	; 1
+ 24e:	50 40       	sbci	r21, 0x00	; 0
+ 250:	b8 f7       	brcc	.-18     	; 0x240 <eeprom_read_blraw+0x8>
+ 252:	08 95       	ret
+
+00000254 <eeprom_write_block>:
+ 254:	dc 01       	movw	r26, r24
+ 256:	cb 01       	movw	r24, r22
+ 258:	03 c0       	rjmp	.+6      	; 0x260 <eeprom_write_block+0xc>
+ 25a:	2d 91       	ld	r18, X+
+ 25c:	0e 94 35 01 	call	0x26a	; 0x26a <eeprom_write_r18>
+ 260:	41 50       	subi	r20, 0x01	; 1
+ 262:	50 40       	sbci	r21, 0x00	; 0
+ 264:	d0 f7       	brcc	.-12     	; 0x25a <eeprom_write_block+0x6>
+ 266:	08 95       	ret
+
+00000268 <eeprom_write_byte>:
+ 268:	26 2f       	mov	r18, r22
+
+0000026a <eeprom_write_r18>:
+ 26a:	e1 99       	sbic	0x1c, 1	; 28
+ 26c:	fe cf       	rjmp	.-4      	; 0x26a <eeprom_write_r18>
+ 26e:	9f bb       	out	0x1f, r25	; 31
+ 270:	8e bb       	out	0x1e, r24	; 30
+ 272:	2d bb       	out	0x1d, r18	; 29
+ 274:	0f b6       	in	r0, 0x3f	; 63
+ 276:	f8 94       	cli
+ 278:	e2 9a       	sbi	0x1c, 2	; 28
+ 27a:	e1 9a       	sbi	0x1c, 1	; 28
+ 27c:	0f be       	out	0x3f, r0	; 63
+ 27e:	01 96       	adiw	r24, 0x01	; 1
+ 280:	08 95       	ret
+
+00000282 <_exit>:
+ 282:	f8 94       	cli
+
+00000284 <__stop_program>:
+ 284:	ff cf       	rjmp	.-2      	; 0x284 <__stop_program>

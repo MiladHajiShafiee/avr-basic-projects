@@ -1,0 +1,594 @@
+
+USART.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000036c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000003e0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  00800060  00800060  000003e0  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000003e0  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000410  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000118  00000000  00000000  0000044c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00002035  00000000  00000000  00000564  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000a35  00000000  00000000  00002599  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000009d1  00000000  00000000  00002fce  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000036c  00000000  00000000  000039a0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000891  00000000  00000000  00003d0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000018d7  00000000  00000000  0000459d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000e8  00000000  00000000  00005e74  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 d2 00 	jmp	0x1a4	; 0x1a4 <__vector_13>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ec e6       	ldi	r30, 0x6C	; 108
+  68:	f3 e0       	ldi	r31, 0x03	; 3
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a0 36       	cpi	r26, 0x60	; 96
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a0 e6       	ldi	r26, 0x60	; 96
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a2 36       	cpi	r26, 0x62	; 98
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 08 01 	call	0x210	; 0x210 <main>
+  8a:	0c 94 b4 01 	jmp	0x368	; 0x368 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <_ZN13Lcd_4_BitMode10LcdCommandEh>:
+
+
+
+void Lcd_4_BitMode::LcdCommand( unsigned char cmnd )
+{
+	LCD_Port = (LCD_Port & 0x0F) | (cmnd & 0xF0);															/* sending upper nibble */
+  92:	88 b3       	in	r24, 0x18	; 24
+  94:	8f 70       	andi	r24, 0x0F	; 15
+  96:	96 2f       	mov	r25, r22
+  98:	90 7f       	andi	r25, 0xF0	; 240
+  9a:	89 2b       	or	r24, r25
+  9c:	88 bb       	out	0x18, r24	; 24
+	LCD_Port &= ~ (1<<RS);																					/* RS=0, command reg. */
+  9e:	c0 98       	cbi	0x18, 0	; 24
+	LCD_Port |= (1<<EN);																					/* Enable pulse */
+  a0:	c1 9a       	sbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  a2:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+  a4:	c1 98       	cbi	0x18, 1	; 24
+  a6:	82 e4       	ldi	r24, 0x42	; 66
+  a8:	8a 95       	dec	r24
+  aa:	f1 f7       	brne	.-4      	; 0xa8 <_ZN13Lcd_4_BitMode10LcdCommandEh+0x16>
+  ac:	00 c0       	rjmp	.+0      	; 0xae <_ZN13Lcd_4_BitMode10LcdCommandEh+0x1c>
+
+	_delay_us(200);
+
+	LCD_Port = (LCD_Port & 0x0F) | (cmnd << 4);																/* sending lower nibble */
+  ae:	88 b3       	in	r24, 0x18	; 24
+  b0:	8f 70       	andi	r24, 0x0F	; 15
+  b2:	90 e1       	ldi	r25, 0x10	; 16
+  b4:	69 9f       	mul	r22, r25
+  b6:	b0 01       	movw	r22, r0
+  b8:	11 24       	eor	r1, r1
+  ba:	68 2b       	or	r22, r24
+  bc:	68 bb       	out	0x18, r22	; 24
+	LCD_Port |= (1<<EN);
+  be:	c1 9a       	sbi	0x18, 1	; 24
+  c0:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+  c2:	c1 98       	cbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  c4:	83 ef       	ldi	r24, 0xF3	; 243
+  c6:	91 e0       	ldi	r25, 0x01	; 1
+  c8:	01 97       	sbiw	r24, 0x01	; 1
+  ca:	f1 f7       	brne	.-4      	; 0xc8 <_ZN13Lcd_4_BitMode10LcdCommandEh+0x36>
+  cc:	00 c0       	rjmp	.+0      	; 0xce <_ZN13Lcd_4_BitMode10LcdCommandEh+0x3c>
+  ce:	00 00       	nop
+  d0:	08 95       	ret
+
+000000d2 <_ZN13Lcd_4_BitMode7LcdCharEh>:
+	_delay_ms(2);
+}
+
+void Lcd_4_BitMode::LcdChar( unsigned char data )
+{
+	LCD_Port = (LCD_Port & 0x0F) | (data & 0xF0);															/* sending upper nibble */
+  d2:	88 b3       	in	r24, 0x18	; 24
+  d4:	8f 70       	andi	r24, 0x0F	; 15
+  d6:	96 2f       	mov	r25, r22
+  d8:	90 7f       	andi	r25, 0xF0	; 240
+  da:	89 2b       	or	r24, r25
+  dc:	88 bb       	out	0x18, r24	; 24
+	LCD_Port |= (1<<RS);																					/* RS=1, data reg. */
+  de:	c0 9a       	sbi	0x18, 0	; 24
+	LCD_Port|= (1<<EN);
+  e0:	c1 9a       	sbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  e2:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+  e4:	c1 98       	cbi	0x18, 1	; 24
+  e6:	82 e4       	ldi	r24, 0x42	; 66
+  e8:	8a 95       	dec	r24
+  ea:	f1 f7       	brne	.-4      	; 0xe8 <_ZN13Lcd_4_BitMode7LcdCharEh+0x16>
+  ec:	00 c0       	rjmp	.+0      	; 0xee <_ZN13Lcd_4_BitMode7LcdCharEh+0x1c>
+	_delay_us(200);
+	LCD_Port = (LCD_Port & 0x0F) | (data << 4);																/* sending lower nibble */
+  ee:	88 b3       	in	r24, 0x18	; 24
+  f0:	8f 70       	andi	r24, 0x0F	; 15
+  f2:	90 e1       	ldi	r25, 0x10	; 16
+  f4:	69 9f       	mul	r22, r25
+  f6:	b0 01       	movw	r22, r0
+  f8:	11 24       	eor	r1, r1
+  fa:	68 2b       	or	r22, r24
+  fc:	68 bb       	out	0x18, r22	; 24
+	LCD_Port |= (1<<EN);
+  fe:	c1 9a       	sbi	0x18, 1	; 24
+ 100:	00 00       	nop
+	_delay_us(1);
+	LCD_Port &= ~ (1<<EN);
+ 102:	c1 98       	cbi	0x18, 1	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 104:	83 ef       	ldi	r24, 0xF3	; 243
+ 106:	91 e0       	ldi	r25, 0x01	; 1
+ 108:	01 97       	sbiw	r24, 0x01	; 1
+ 10a:	f1 f7       	brne	.-4      	; 0x108 <_ZN13Lcd_4_BitMode7LcdCharEh+0x36>
+ 10c:	00 c0       	rjmp	.+0      	; 0x10e <_ZN13Lcd_4_BitMode7LcdCharEh+0x3c>
+ 10e:	00 00       	nop
+ 110:	08 95       	ret
+
+00000112 <_ZN13Lcd_4_BitMode7LcdInitEv>:
+	_delay_ms(2);
+}
+
+void Lcd_4_BitMode::LcdInit (void)
+{
+ 112:	cf 93       	push	r28
+ 114:	df 93       	push	r29
+ 116:	ec 01       	movw	r28, r24
+	LCD_Dir = 0xFF;																							/* Make LCD port direction as o/p */
+ 118:	8f ef       	ldi	r24, 0xFF	; 255
+ 11a:	87 bb       	out	0x17, r24	; 23
+ 11c:	87 e8       	ldi	r24, 0x87	; 135
+ 11e:	93 e1       	ldi	r25, 0x13	; 19
+ 120:	01 97       	sbiw	r24, 0x01	; 1
+ 122:	f1 f7       	brne	.-4      	; 0x120 <_ZN13Lcd_4_BitMode7LcdInitEv+0xe>
+ 124:	00 c0       	rjmp	.+0      	; 0x126 <_ZN13Lcd_4_BitMode7LcdInitEv+0x14>
+ 126:	00 00       	nop
+	_delay_ms(20);																							/* LCD Power ON delay always >15ms */
+	
+	LcdCommand(0x02);																						/* send for 4 bit initialization of LCD  */
+ 128:	62 e0       	ldi	r22, 0x02	; 2
+ 12a:	ce 01       	movw	r24, r28
+ 12c:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x28);																					    /* 2 line, 5*7 matrix in 4-bit mode */
+ 130:	68 e2       	ldi	r22, 0x28	; 40
+ 132:	ce 01       	movw	r24, r28
+ 134:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x0c);																				        /* Display on cursor off*/
+ 138:	6c e0       	ldi	r22, 0x0C	; 12
+ 13a:	ce 01       	movw	r24, r28
+ 13c:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x06);																						/* Increment cursor (shift cursor to right)*/
+ 140:	66 e0       	ldi	r22, 0x06	; 6
+ 142:	ce 01       	movw	r24, r28
+ 144:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	LcdCommand(0x01);																					    /* Clear display screen*/
+ 148:	61 e0       	ldi	r22, 0x01	; 1
+ 14a:	ce 01       	movw	r24, r28
+ 14c:	0e 94 49 00 	call	0x92	; 0x92 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 150:	83 ef       	ldi	r24, 0xF3	; 243
+ 152:	91 e0       	ldi	r25, 0x01	; 1
+ 154:	01 97       	sbiw	r24, 0x01	; 1
+ 156:	f1 f7       	brne	.-4      	; 0x154 <_ZN13Lcd_4_BitMode7LcdInitEv+0x42>
+ 158:	00 c0       	rjmp	.+0      	; 0x15a <_ZN13Lcd_4_BitMode7LcdInitEv+0x48>
+ 15a:	00 00       	nop
+	_delay_ms(2);
+}
+ 15c:	df 91       	pop	r29
+ 15e:	cf 91       	pop	r28
+ 160:	08 95       	ret
+
+00000162 <_ZN13Lcd_4_BitMode9LcdStringEPc>:
+
+uint8_t Lcd_4_BitMode::LcdString (char *str)
+{
+ 162:	ef 92       	push	r14
+ 164:	ff 92       	push	r15
+ 166:	0f 93       	push	r16
+ 168:	1f 93       	push	r17
+ 16a:	cf 93       	push	r28
+ 16c:	df 93       	push	r29
+ 16e:	eb 01       	movw	r28, r22
+	int i;
+	for(i = 0 ; str[i] != 0; i ++)																			/* Send each char of string till the NULL */
+ 170:	68 81       	ld	r22, Y
+ 172:	66 23       	and	r22, r22
+ 174:	69 f0       	breq	.+26     	; 0x190 <_ZN13Lcd_4_BitMode9LcdStringEPc+0x2e>
+ 176:	7c 01       	movw	r14, r24
+ 178:	21 96       	adiw	r28, 0x01	; 1
+ 17a:	00 e0       	ldi	r16, 0x00	; 0
+ 17c:	10 e0       	ldi	r17, 0x00	; 0
+	{
+		LcdChar (str[i]);
+ 17e:	c7 01       	movw	r24, r14
+ 180:	0e 94 69 00 	call	0xd2	; 0xd2 <_ZN13Lcd_4_BitMode7LcdCharEh>
+}
+
+uint8_t Lcd_4_BitMode::LcdString (char *str)
+{
+	int i;
+	for(i = 0 ; str[i] != 0; i ++)																			/* Send each char of string till the NULL */
+ 184:	0f 5f       	subi	r16, 0xFF	; 255
+ 186:	1f 4f       	sbci	r17, 0xFF	; 255
+ 188:	69 91       	ld	r22, Y+
+ 18a:	61 11       	cpse	r22, r1
+ 18c:	f8 cf       	rjmp	.-16     	; 0x17e <_ZN13Lcd_4_BitMode9LcdStringEPc+0x1c>
+ 18e:	02 c0       	rjmp	.+4      	; 0x194 <_ZN13Lcd_4_BitMode9LcdStringEPc+0x32>
+ 190:	00 e0       	ldi	r16, 0x00	; 0
+ 192:	10 e0       	ldi	r17, 0x00	; 0
+	{
+		LcdChar (str[i]);
+	}
+	return i;
+}
+ 194:	80 2f       	mov	r24, r16
+ 196:	df 91       	pop	r29
+ 198:	cf 91       	pop	r28
+ 19a:	1f 91       	pop	r17
+ 19c:	0f 91       	pop	r16
+ 19e:	ff 90       	pop	r15
+ 1a0:	ef 90       	pop	r14
+ 1a2:	08 95       	ret
+
+000001a4 <__vector_13>:
+USART usart;
+Lcd_4_BitMode lcd;
+
+
+ISR(USART_RXC_vect)
+{
+ 1a4:	1f 92       	push	r1
+ 1a6:	0f 92       	push	r0
+ 1a8:	0f b6       	in	r0, 0x3f	; 63
+ 1aa:	0f 92       	push	r0
+ 1ac:	11 24       	eor	r1, r1
+ 1ae:	2f 93       	push	r18
+ 1b0:	3f 93       	push	r19
+ 1b2:	4f 93       	push	r20
+ 1b4:	5f 93       	push	r21
+ 1b6:	6f 93       	push	r22
+ 1b8:	7f 93       	push	r23
+ 1ba:	8f 93       	push	r24
+ 1bc:	9f 93       	push	r25
+ 1be:	af 93       	push	r26
+ 1c0:	bf 93       	push	r27
+ 1c2:	ef 93       	push	r30
+ 1c4:	ff 93       	push	r31
+ 1c6:	cf 93       	push	r28
+ 1c8:	df 93       	push	r29
+ 1ca:	1f 92       	push	r1
+ 1cc:	cd b7       	in	r28, 0x3d	; 61
+ 1ce:	de b7       	in	r29, 0x3e	; 62
+	char c[] = {usart.UsartReciever()};
+ 1d0:	81 e6       	ldi	r24, 0x61	; 97
+ 1d2:	90 e0       	ldi	r25, 0x00	; 0
+ 1d4:	0e 94 8e 01 	call	0x31c	; 0x31c <_ZN5USART13UsartRecieverEv>
+ 1d8:	89 83       	std	Y+1, r24	; 0x01
+	lcd.LcdString(c);
+ 1da:	be 01       	movw	r22, r28
+ 1dc:	6f 5f       	subi	r22, 0xFF	; 255
+ 1de:	7f 4f       	sbci	r23, 0xFF	; 255
+ 1e0:	80 e6       	ldi	r24, 0x60	; 96
+ 1e2:	90 e0       	ldi	r25, 0x00	; 0
+ 1e4:	0e 94 b1 00 	call	0x162	; 0x162 <_ZN13Lcd_4_BitMode9LcdStringEPc>
+}
+ 1e8:	0f 90       	pop	r0
+ 1ea:	df 91       	pop	r29
+ 1ec:	cf 91       	pop	r28
+ 1ee:	ff 91       	pop	r31
+ 1f0:	ef 91       	pop	r30
+ 1f2:	bf 91       	pop	r27
+ 1f4:	af 91       	pop	r26
+ 1f6:	9f 91       	pop	r25
+ 1f8:	8f 91       	pop	r24
+ 1fa:	7f 91       	pop	r23
+ 1fc:	6f 91       	pop	r22
+ 1fe:	5f 91       	pop	r21
+ 200:	4f 91       	pop	r20
+ 202:	3f 91       	pop	r19
+ 204:	2f 91       	pop	r18
+ 206:	0f 90       	pop	r0
+ 208:	0f be       	out	0x3f, r0	; 63
+ 20a:	0f 90       	pop	r0
+ 20c:	1f 90       	pop	r1
+ 20e:	18 95       	reti
+
+00000210 <main>:
+
+
+int main()
+{
+	usart.UsartInit(9600, Asynchronous, Disabled, 8, true);
+ 210:	ee 24       	eor	r14, r14
+ 212:	e3 94       	inc	r14
+ 214:	08 e0       	ldi	r16, 0x08	; 8
+ 216:	24 e0       	ldi	r18, 0x04	; 4
+ 218:	40 e0       	ldi	r20, 0x00	; 0
+ 21a:	60 e8       	ldi	r22, 0x80	; 128
+ 21c:	75 e2       	ldi	r23, 0x25	; 37
+ 21e:	81 e6       	ldi	r24, 0x61	; 97
+ 220:	90 e0       	ldi	r25, 0x00	; 0
+ 222:	0e 94 19 01 	call	0x232	; 0x232 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb>
+	lcd.LcdInit();
+ 226:	80 e6       	ldi	r24, 0x60	; 96
+ 228:	90 e0       	ldi	r25, 0x00	; 0
+ 22a:	0e 94 89 00 	call	0x112	; 0x112 <_ZN13Lcd_4_BitMode7LcdInitEv>
+	sei();
+ 22e:	78 94       	sei
+ 230:	ff cf       	rjmp	.-2      	; 0x230 <main+0x20>
+
+00000232 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb>:
+}
+
+void USART::UsartNumTransmiter(uint16_t character)
+{
+	while (!(UCSRA & (1<<UDRE)));
+	UDR = character;
+ 232:	ef 92       	push	r14
+ 234:	0f 93       	push	r16
+ 236:	23 30       	cpi	r18, 0x03	; 3
+ 238:	81 f0       	breq	.+32     	; 0x25a <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x28>
+ 23a:	24 30       	cpi	r18, 0x04	; 4
+ 23c:	19 f0       	breq	.+6      	; 0x244 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x12>
+ 23e:	22 30       	cpi	r18, 0x02	; 2
+ 240:	79 f4       	brne	.+30     	; 0x260 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x2e>
+ 242:	07 c0       	rjmp	.+14     	; 0x252 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x20>
+ 244:	80 b5       	in	r24, 0x20	; 32
+ 246:	8f 7e       	andi	r24, 0xEF	; 239
+ 248:	80 bd       	out	0x20, r24	; 32
+ 24a:	80 b5       	in	r24, 0x20	; 32
+ 24c:	8f 7d       	andi	r24, 0xDF	; 223
+ 24e:	80 bd       	out	0x20, r24	; 32
+ 250:	07 c0       	rjmp	.+14     	; 0x260 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x2e>
+ 252:	80 b5       	in	r24, 0x20	; 32
+ 254:	80 62       	ori	r24, 0x20	; 32
+ 256:	80 bd       	out	0x20, r24	; 32
+ 258:	03 c0       	rjmp	.+6      	; 0x260 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x2e>
+ 25a:	80 b5       	in	r24, 0x20	; 32
+ 25c:	80 61       	ori	r24, 0x10	; 16
+ 25e:	80 bd       	out	0x20, r24	; 32
+ 260:	44 23       	and	r20, r20
+ 262:	31 f0       	breq	.+12     	; 0x270 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x3e>
+ 264:	41 30       	cpi	r20, 0x01	; 1
+ 266:	39 f4       	brne	.+14     	; 0x276 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x44>
+ 268:	80 b5       	in	r24, 0x20	; 32
+ 26a:	80 64       	ori	r24, 0x40	; 64
+ 26c:	80 bd       	out	0x20, r24	; 32
+ 26e:	03 c0       	rjmp	.+6      	; 0x276 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x44>
+ 270:	80 b5       	in	r24, 0x20	; 32
+ 272:	8f 7b       	andi	r24, 0xBF	; 191
+ 274:	80 bd       	out	0x20, r24	; 32
+ 276:	ee 20       	and	r14, r14
+ 278:	11 f0       	breq	.+4      	; 0x27e <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x4c>
+ 27a:	57 9a       	sbi	0x0a, 7	; 10
+ 27c:	56 9a       	sbi	0x0a, 6	; 10
+ 27e:	8a b1       	in	r24, 0x0a	; 10
+ 280:	88 61       	ori	r24, 0x18	; 24
+ 282:	8a b9       	out	0x0a, r24	; 10
+ 284:	80 b5       	in	r24, 0x20	; 32
+ 286:	80 68       	ori	r24, 0x80	; 128
+ 288:	80 bd       	out	0x20, r24	; 32
+ 28a:	07 30       	cpi	r16, 0x07	; 7
+ 28c:	c9 f0       	breq	.+50     	; 0x2c0 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x8e>
+ 28e:	28 f4       	brcc	.+10     	; 0x29a <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x68>
+ 290:	05 30       	cpi	r16, 0x05	; 5
+ 292:	41 f0       	breq	.+16     	; 0x2a4 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x72>
+ 294:	06 30       	cpi	r16, 0x06	; 6
+ 296:	69 f0       	breq	.+26     	; 0x2b2 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x80>
+ 298:	1f c0       	rjmp	.+62     	; 0x2d8 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0xa6>
+ 29a:	08 30       	cpi	r16, 0x08	; 8
+ 29c:	c1 f0       	breq	.+48     	; 0x2ce <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0x9c>
+ 29e:	09 30       	cpi	r16, 0x09	; 9
+ 2a0:	c9 f0       	breq	.+50     	; 0x2d4 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0xa2>
+ 2a2:	1a c0       	rjmp	.+52     	; 0x2d8 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0xa6>
+ 2a4:	80 b5       	in	r24, 0x20	; 32
+ 2a6:	8d 7f       	andi	r24, 0xFD	; 253
+ 2a8:	80 bd       	out	0x20, r24	; 32
+ 2aa:	80 b5       	in	r24, 0x20	; 32
+ 2ac:	8b 7f       	andi	r24, 0xFB	; 251
+ 2ae:	80 bd       	out	0x20, r24	; 32
+ 2b0:	13 c0       	rjmp	.+38     	; 0x2d8 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0xa6>
+ 2b2:	80 b5       	in	r24, 0x20	; 32
+ 2b4:	82 60       	ori	r24, 0x02	; 2
+ 2b6:	80 bd       	out	0x20, r24	; 32
+ 2b8:	80 b5       	in	r24, 0x20	; 32
+ 2ba:	8b 7f       	andi	r24, 0xFB	; 251
+ 2bc:	80 bd       	out	0x20, r24	; 32
+ 2be:	0c c0       	rjmp	.+24     	; 0x2d8 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0xa6>
+ 2c0:	80 b5       	in	r24, 0x20	; 32
+ 2c2:	84 60       	ori	r24, 0x04	; 4
+ 2c4:	80 bd       	out	0x20, r24	; 32
+ 2c6:	80 b5       	in	r24, 0x20	; 32
+ 2c8:	8d 7f       	andi	r24, 0xFD	; 253
+ 2ca:	80 bd       	out	0x20, r24	; 32
+ 2cc:	05 c0       	rjmp	.+10     	; 0x2d8 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0xa6>
+ 2ce:	86 e0       	ldi	r24, 0x06	; 6
+ 2d0:	80 bd       	out	0x20, r24	; 32
+ 2d2:	02 c0       	rjmp	.+4      	; 0x2d8 <_ZN5USART9UsartInitEj15PhraseVarriableS0_hb+0xa6>
+ 2d4:	86 e0       	ldi	r24, 0x06	; 6
+ 2d6:	80 bd       	out	0x20, r24	; 32
+ 2d8:	cb 01       	movw	r24, r22
+ 2da:	a0 e0       	ldi	r26, 0x00	; 0
+ 2dc:	b0 e0       	ldi	r27, 0x00	; 0
+ 2de:	88 0f       	add	r24, r24
+ 2e0:	99 1f       	adc	r25, r25
+ 2e2:	aa 1f       	adc	r26, r26
+ 2e4:	bb 1f       	adc	r27, r27
+ 2e6:	88 0f       	add	r24, r24
+ 2e8:	99 1f       	adc	r25, r25
+ 2ea:	aa 1f       	adc	r26, r26
+ 2ec:	bb 1f       	adc	r27, r27
+ 2ee:	9c 01       	movw	r18, r24
+ 2f0:	ad 01       	movw	r20, r26
+ 2f2:	22 0f       	add	r18, r18
+ 2f4:	33 1f       	adc	r19, r19
+ 2f6:	44 1f       	adc	r20, r20
+ 2f8:	55 1f       	adc	r21, r21
+ 2fa:	22 0f       	add	r18, r18
+ 2fc:	33 1f       	adc	r19, r19
+ 2fe:	44 1f       	adc	r20, r20
+ 300:	55 1f       	adc	r21, r21
+ 302:	60 e0       	ldi	r22, 0x00	; 0
+ 304:	72 e1       	ldi	r23, 0x12	; 18
+ 306:	8a e7       	ldi	r24, 0x7A	; 122
+ 308:	90 e0       	ldi	r25, 0x00	; 0
+ 30a:	0e 94 92 01 	call	0x324	; 0x324 <__udivmodsi4>
+ 30e:	21 50       	subi	r18, 0x01	; 1
+ 310:	31 09       	sbc	r19, r1
+ 312:	29 b9       	out	0x09, r18	; 9
+ 314:	30 bd       	out	0x20, r19	; 32
+ 316:	0f 91       	pop	r16
+ 318:	ef 90       	pop	r14
+ 31a:	08 95       	ret
+
+0000031c <_ZN5USART13UsartRecieverEv>:
+}
+
+unsigned char USART::UsartReciever(void)
+{
+	while ((UCSRA & (1 << RXC)) == 0);
+ 31c:	5f 9b       	sbis	0x0b, 7	; 11
+ 31e:	fe cf       	rjmp	.-4      	; 0x31c <_ZN5USART13UsartRecieverEv>
+	return UDR;
+ 320:	8c b1       	in	r24, 0x0c	; 12
+}
+ 322:	08 95       	ret
+
+00000324 <__udivmodsi4>:
+ 324:	a1 e2       	ldi	r26, 0x21	; 33
+ 326:	1a 2e       	mov	r1, r26
+ 328:	aa 1b       	sub	r26, r26
+ 32a:	bb 1b       	sub	r27, r27
+ 32c:	fd 01       	movw	r30, r26
+ 32e:	0d c0       	rjmp	.+26     	; 0x34a <__udivmodsi4_ep>
+
+00000330 <__udivmodsi4_loop>:
+ 330:	aa 1f       	adc	r26, r26
+ 332:	bb 1f       	adc	r27, r27
+ 334:	ee 1f       	adc	r30, r30
+ 336:	ff 1f       	adc	r31, r31
+ 338:	a2 17       	cp	r26, r18
+ 33a:	b3 07       	cpc	r27, r19
+ 33c:	e4 07       	cpc	r30, r20
+ 33e:	f5 07       	cpc	r31, r21
+ 340:	20 f0       	brcs	.+8      	; 0x34a <__udivmodsi4_ep>
+ 342:	a2 1b       	sub	r26, r18
+ 344:	b3 0b       	sbc	r27, r19
+ 346:	e4 0b       	sbc	r30, r20
+ 348:	f5 0b       	sbc	r31, r21
+
+0000034a <__udivmodsi4_ep>:
+ 34a:	66 1f       	adc	r22, r22
+ 34c:	77 1f       	adc	r23, r23
+ 34e:	88 1f       	adc	r24, r24
+ 350:	99 1f       	adc	r25, r25
+ 352:	1a 94       	dec	r1
+ 354:	69 f7       	brne	.-38     	; 0x330 <__udivmodsi4_loop>
+ 356:	60 95       	com	r22
+ 358:	70 95       	com	r23
+ 35a:	80 95       	com	r24
+ 35c:	90 95       	com	r25
+ 35e:	9b 01       	movw	r18, r22
+ 360:	ac 01       	movw	r20, r24
+ 362:	bd 01       	movw	r22, r26
+ 364:	cf 01       	movw	r24, r30
+ 366:	08 95       	ret
+
+00000368 <_exit>:
+ 368:	f8 94       	cli
+
+0000036a <__stop_program>:
+ 36a:	ff cf       	rjmp	.-2      	; 0x36a <__stop_program>

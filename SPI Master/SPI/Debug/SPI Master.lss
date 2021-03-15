@@ -1,0 +1,482 @@
+
+SPI Master.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002c8  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000002e  00800060  000002c8  0000035c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  0080008e  0080008e  0000038a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000038a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000003bc  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000100  00000000  00000000  000003f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000200f  00000000  00000000  000004f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000a40  00000000  00000000  00002507  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000009a3  00000000  00000000  00002f47  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000002bc  00000000  00000000  000038ec  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000007d6  00000000  00000000  00003ba8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000164f  00000000  00000000  0000437e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000d0  00000000  00000000  000059cd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 31 00 	jmp	0x62	; 0x62 <__ctors_end>
+   4:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+   8:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+   c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  10:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  14:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  18:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  1c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  20:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  24:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  28:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  2c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  30:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  34:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  38:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  3c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  40:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  44:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  48:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  4c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  50:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  54:	44 01       	movw	r8, r8
+  56:	34 01       	movw	r6, r8
+  58:	48 01       	movw	r8, r16
+  5a:	38 01       	movw	r6, r16
+  5c:	4c 01       	movw	r8, r24
+  5e:	3c 01       	movw	r6, r24
+  60:	40 01       	movw	r8, r0
+
+00000062 <__ctors_end>:
+  62:	11 24       	eor	r1, r1
+  64:	1f be       	out	0x3f, r1	; 63
+  66:	cf e5       	ldi	r28, 0x5F	; 95
+  68:	d4 e0       	ldi	r29, 0x04	; 4
+  6a:	de bf       	out	0x3e, r29	; 62
+  6c:	cd bf       	out	0x3d, r28	; 61
+
+0000006e <__do_copy_data>:
+  6e:	10 e0       	ldi	r17, 0x00	; 0
+  70:	a0 e6       	ldi	r26, 0x60	; 96
+  72:	b0 e0       	ldi	r27, 0x00	; 0
+  74:	e8 ec       	ldi	r30, 0xC8	; 200
+  76:	f2 e0       	ldi	r31, 0x02	; 2
+  78:	02 c0       	rjmp	.+4      	; 0x7e <__do_copy_data+0x10>
+  7a:	05 90       	lpm	r0, Z+
+  7c:	0d 92       	st	X+, r0
+  7e:	ae 38       	cpi	r26, 0x8E	; 142
+  80:	b1 07       	cpc	r27, r17
+  82:	d9 f7       	brne	.-10     	; 0x7a <__do_copy_data+0xc>
+
+00000084 <__do_clear_bss>:
+  84:	20 e0       	ldi	r18, 0x00	; 0
+  86:	ae e8       	ldi	r26, 0x8E	; 142
+  88:	b0 e0       	ldi	r27, 0x00	; 0
+  8a:	01 c0       	rjmp	.+2      	; 0x8e <.do_clear_bss_start>
+
+0000008c <.do_clear_bss_loop>:
+  8c:	1d 92       	st	X+, r1
+
+0000008e <.do_clear_bss_start>:
+  8e:	a0 39       	cpi	r26, 0x90	; 144
+  90:	b2 07       	cpc	r27, r18
+  92:	e1 f7       	brne	.-8      	; 0x8c <.do_clear_bss_loop>
+  94:	0e 94 ed 00 	call	0x1da	; 0x1da <main>
+  98:	0c 94 62 01 	jmp	0x2c4	; 0x2c4 <_exit>
+
+0000009c <__bad_interrupt>:
+  9c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a0 <_ZN13Lcd_4_BitMode10LcdCommandEh>:
+	if (row == 0 && pos<16)
+	LcdCommand((pos & 0x0F)|0x80);																			/* Command of first row and required position<16 */
+	else if (row == 1 && pos<16)
+	LcdCommand((pos & 0x0F)|0xC0);																			/* Command of first row and required position<16 */
+	LcdString(str);																							/* Call LCD string function */
+}
+  a0:	82 b3       	in	r24, 0x12	; 18
+  a2:	8f 70       	andi	r24, 0x0F	; 15
+  a4:	96 2f       	mov	r25, r22
+  a6:	90 7f       	andi	r25, 0xF0	; 240
+  a8:	89 2b       	or	r24, r25
+  aa:	82 bb       	out	0x12, r24	; 18
+  ac:	90 98       	cbi	0x12, 0	; 18
+  ae:	91 9a       	sbi	0x12, 1	; 18
+  b0:	00 00       	nop
+  b2:	91 98       	cbi	0x12, 1	; 18
+  b4:	82 e4       	ldi	r24, 0x42	; 66
+  b6:	8a 95       	dec	r24
+  b8:	f1 f7       	brne	.-4      	; 0xb6 <_ZN13Lcd_4_BitMode10LcdCommandEh+0x16>
+  ba:	00 c0       	rjmp	.+0      	; 0xbc <_ZN13Lcd_4_BitMode10LcdCommandEh+0x1c>
+  bc:	82 b3       	in	r24, 0x12	; 18
+  be:	8f 70       	andi	r24, 0x0F	; 15
+  c0:	90 e1       	ldi	r25, 0x10	; 16
+  c2:	69 9f       	mul	r22, r25
+  c4:	b0 01       	movw	r22, r0
+  c6:	11 24       	eor	r1, r1
+  c8:	68 2b       	or	r22, r24
+  ca:	62 bb       	out	0x12, r22	; 18
+  cc:	91 9a       	sbi	0x12, 1	; 18
+  ce:	00 00       	nop
+  d0:	91 98       	cbi	0x12, 1	; 18
+  d2:	83 ef       	ldi	r24, 0xF3	; 243
+  d4:	91 e0       	ldi	r25, 0x01	; 1
+  d6:	01 97       	sbiw	r24, 0x01	; 1
+  d8:	f1 f7       	brne	.-4      	; 0xd6 <_ZN13Lcd_4_BitMode10LcdCommandEh+0x36>
+  da:	00 c0       	rjmp	.+0      	; 0xdc <_ZN13Lcd_4_BitMode10LcdCommandEh+0x3c>
+  dc:	00 00       	nop
+  de:	08 95       	ret
+
+000000e0 <_ZN13Lcd_4_BitMode7LcdCharEh>:
+  e0:	82 b3       	in	r24, 0x12	; 18
+  e2:	8f 70       	andi	r24, 0x0F	; 15
+  e4:	96 2f       	mov	r25, r22
+  e6:	90 7f       	andi	r25, 0xF0	; 240
+  e8:	89 2b       	or	r24, r25
+  ea:	82 bb       	out	0x12, r24	; 18
+  ec:	90 9a       	sbi	0x12, 0	; 18
+  ee:	91 9a       	sbi	0x12, 1	; 18
+  f0:	00 00       	nop
+  f2:	91 98       	cbi	0x12, 1	; 18
+  f4:	82 e4       	ldi	r24, 0x42	; 66
+  f6:	8a 95       	dec	r24
+  f8:	f1 f7       	brne	.-4      	; 0xf6 <_ZN13Lcd_4_BitMode7LcdCharEh+0x16>
+  fa:	00 c0       	rjmp	.+0      	; 0xfc <_ZN13Lcd_4_BitMode7LcdCharEh+0x1c>
+  fc:	82 b3       	in	r24, 0x12	; 18
+  fe:	8f 70       	andi	r24, 0x0F	; 15
+ 100:	90 e1       	ldi	r25, 0x10	; 16
+ 102:	69 9f       	mul	r22, r25
+ 104:	b0 01       	movw	r22, r0
+ 106:	11 24       	eor	r1, r1
+ 108:	68 2b       	or	r22, r24
+ 10a:	62 bb       	out	0x12, r22	; 18
+ 10c:	91 9a       	sbi	0x12, 1	; 18
+ 10e:	00 00       	nop
+ 110:	91 98       	cbi	0x12, 1	; 18
+ 112:	83 ef       	ldi	r24, 0xF3	; 243
+ 114:	91 e0       	ldi	r25, 0x01	; 1
+ 116:	01 97       	sbiw	r24, 0x01	; 1
+ 118:	f1 f7       	brne	.-4      	; 0x116 <_ZN13Lcd_4_BitMode7LcdCharEh+0x36>
+ 11a:	00 c0       	rjmp	.+0      	; 0x11c <_ZN13Lcd_4_BitMode7LcdCharEh+0x3c>
+ 11c:	00 00       	nop
+ 11e:	08 95       	ret
+
+00000120 <_ZN13Lcd_4_BitMode7LcdInitEv>:
+ 120:	cf 93       	push	r28
+ 122:	df 93       	push	r29
+ 124:	ec 01       	movw	r28, r24
+ 126:	8f ef       	ldi	r24, 0xFF	; 255
+ 128:	81 bb       	out	0x11, r24	; 17
+ 12a:	87 e8       	ldi	r24, 0x87	; 135
+ 12c:	93 e1       	ldi	r25, 0x13	; 19
+ 12e:	01 97       	sbiw	r24, 0x01	; 1
+ 130:	f1 f7       	brne	.-4      	; 0x12e <_ZN13Lcd_4_BitMode7LcdInitEv+0xe>
+ 132:	00 c0       	rjmp	.+0      	; 0x134 <_ZN13Lcd_4_BitMode7LcdInitEv+0x14>
+ 134:	00 00       	nop
+ 136:	62 e0       	ldi	r22, 0x02	; 2
+ 138:	ce 01       	movw	r24, r28
+ 13a:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 13e:	68 e2       	ldi	r22, 0x28	; 40
+ 140:	ce 01       	movw	r24, r28
+ 142:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 146:	6c e0       	ldi	r22, 0x0C	; 12
+ 148:	ce 01       	movw	r24, r28
+ 14a:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 14e:	66 e0       	ldi	r22, 0x06	; 6
+ 150:	ce 01       	movw	r24, r28
+ 152:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 156:	61 e0       	ldi	r22, 0x01	; 1
+ 158:	ce 01       	movw	r24, r28
+ 15a:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 15e:	83 ef       	ldi	r24, 0xF3	; 243
+ 160:	91 e0       	ldi	r25, 0x01	; 1
+ 162:	01 97       	sbiw	r24, 0x01	; 1
+ 164:	f1 f7       	brne	.-4      	; 0x162 <_ZN13Lcd_4_BitMode7LcdInitEv+0x42>
+ 166:	00 c0       	rjmp	.+0      	; 0x168 <_ZN13Lcd_4_BitMode7LcdInitEv+0x48>
+ 168:	00 00       	nop
+ 16a:	df 91       	pop	r29
+ 16c:	cf 91       	pop	r28
+ 16e:	08 95       	ret
+
+00000170 <_ZN13Lcd_4_BitMode9LcdStringEPc>:
+ 170:	ef 92       	push	r14
+ 172:	ff 92       	push	r15
+ 174:	0f 93       	push	r16
+ 176:	1f 93       	push	r17
+ 178:	cf 93       	push	r28
+ 17a:	df 93       	push	r29
+ 17c:	eb 01       	movw	r28, r22
+ 17e:	68 81       	ld	r22, Y
+ 180:	66 23       	and	r22, r22
+ 182:	69 f0       	breq	.+26     	; 0x19e <_ZN13Lcd_4_BitMode9LcdStringEPc+0x2e>
+ 184:	7c 01       	movw	r14, r24
+ 186:	21 96       	adiw	r28, 0x01	; 1
+ 188:	00 e0       	ldi	r16, 0x00	; 0
+ 18a:	10 e0       	ldi	r17, 0x00	; 0
+ 18c:	c7 01       	movw	r24, r14
+ 18e:	0e 94 70 00 	call	0xe0	; 0xe0 <_ZN13Lcd_4_BitMode7LcdCharEh>
+ 192:	0f 5f       	subi	r16, 0xFF	; 255
+ 194:	1f 4f       	sbci	r17, 0xFF	; 255
+ 196:	69 91       	ld	r22, Y+
+ 198:	61 11       	cpse	r22, r1
+ 19a:	f8 cf       	rjmp	.-16     	; 0x18c <_ZN13Lcd_4_BitMode9LcdStringEPc+0x1c>
+ 19c:	02 c0       	rjmp	.+4      	; 0x1a2 <_ZN13Lcd_4_BitMode9LcdStringEPc+0x32>
+ 19e:	00 e0       	ldi	r16, 0x00	; 0
+ 1a0:	10 e0       	ldi	r17, 0x00	; 0
+ 1a2:	80 2f       	mov	r24, r16
+ 1a4:	df 91       	pop	r29
+ 1a6:	cf 91       	pop	r28
+ 1a8:	1f 91       	pop	r17
+ 1aa:	0f 91       	pop	r16
+ 1ac:	ff 90       	pop	r15
+ 1ae:	ef 90       	pop	r14
+ 1b0:	08 95       	ret
+
+000001b2 <_ZN13Lcd_4_BitMode7LcdGoXyEhh>:
+
+void Lcd_4_BitMode::LcdGoXy (unsigned char row,unsigned char pos)
+{
+	if (row == 0 && pos<16)
+ 1b2:	61 11       	cpse	r22, r1
+ 1b4:	08 c0       	rjmp	.+16     	; 0x1c6 <_ZN13Lcd_4_BitMode7LcdGoXyEhh+0x14>
+ 1b6:	40 31       	cpi	r20, 0x10	; 16
+ 1b8:	78 f4       	brcc	.+30     	; 0x1d8 <_ZN13Lcd_4_BitMode7LcdGoXyEhh+0x26>
+	LcdCommand((pos & 0x0F)|0x80);																			/* Command of first row and required position<16 */
+ 1ba:	4f 70       	andi	r20, 0x0F	; 15
+ 1bc:	64 2f       	mov	r22, r20
+ 1be:	60 68       	ori	r22, 0x80	; 128
+ 1c0:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 1c4:	08 95       	ret
+	else if (row == 1 && pos<16)
+ 1c6:	61 30       	cpi	r22, 0x01	; 1
+ 1c8:	39 f4       	brne	.+14     	; 0x1d8 <_ZN13Lcd_4_BitMode7LcdGoXyEhh+0x26>
+ 1ca:	40 31       	cpi	r20, 0x10	; 16
+ 1cc:	28 f4       	brcc	.+10     	; 0x1d8 <_ZN13Lcd_4_BitMode7LcdGoXyEhh+0x26>
+	LcdCommand((pos & 0x0F)|0xC0);																			/* Command of first row and required position<16 */
+ 1ce:	4f 70       	andi	r20, 0x0F	; 15
+ 1d0:	64 2f       	mov	r22, r20
+ 1d2:	60 6c       	ori	r22, 0xC0	; 192
+ 1d4:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+ 1d8:	08 95       	ret
+
+000001da <main>:
+int main(void)
+{
+	char data = 'a';
+	int charValue = (int)data;
+	
+	lcd.LcdInit();
+ 1da:	8f e8       	ldi	r24, 0x8F	; 143
+ 1dc:	90 e0       	ldi	r25, 0x00	; 0
+ 1de:	0e 94 90 00 	call	0x120	; 0x120 <_ZN13Lcd_4_BitMode7LcdInitEv>
+	spi.SpiMasterInit(devidedBy64);
+ 1e2:	65 e0       	ldi	r22, 0x05	; 5
+ 1e4:	8e e8       	ldi	r24, 0x8E	; 142
+ 1e6:	90 e0       	ldi	r25, 0x00	; 0
+ 1e8:	0e 94 2a 01 	call	0x254	; 0x254 <_ZN3Spi13SpiMasterInitE12SCKFrequency>
+	
+	lcd.LcdString("Master Device");
+ 1ec:	60 e6       	ldi	r22, 0x60	; 96
+ 1ee:	70 e0       	ldi	r23, 0x00	; 0
+ 1f0:	8f e8       	ldi	r24, 0x8F	; 143
+ 1f2:	90 e0       	ldi	r25, 0x00	; 0
+ 1f4:	0e 94 b8 00 	call	0x170	; 0x170 <_ZN13Lcd_4_BitMode9LcdStringEPc>
+	lcd.LcdCommand(GoSecondLine);
+ 1f8:	60 ec       	ldi	r22, 0xC0	; 192
+ 1fa:	8f e8       	ldi	r24, 0x8F	; 143
+ 1fc:	90 e0       	ldi	r25, 0x00	; 0
+ 1fe:	0e 94 50 00 	call	0xa0	; 0xa0 <_ZN13Lcd_4_BitMode10LcdCommandEh>
+	lcd.LcdString("Sent Data:          ");
+ 202:	6e e6       	ldi	r22, 0x6E	; 110
+ 204:	70 e0       	ldi	r23, 0x00	; 0
+ 206:	8f e8       	ldi	r24, 0x8F	; 143
+ 208:	90 e0       	ldi	r25, 0x00	; 0
+ 20a:	0e 94 b8 00 	call	0x170	; 0x170 <_ZN13Lcd_4_BitMode9LcdStringEPc>
+Lcd_4_BitMode lcd;
+Spi spi;
+
+int main(void)
+{
+	char data = 'a';
+ 20e:	c1 e6       	ldi	r28, 0x61	; 97
+	lcd.LcdCommand(GoSecondLine);
+	lcd.LcdString("Sent Data:          ");
+	
+    while (1) 
+    {
+		spi.SpiWrite(data);
+ 210:	6c 2f       	mov	r22, r28
+ 212:	8e e8       	ldi	r24, 0x8E	; 142
+ 214:	90 e0       	ldi	r25, 0x00	; 0
+ 216:	0e 94 57 01 	call	0x2ae	; 0x2ae <_ZN3Spi8SpiWriteEc>
+		lcd.LcdGoXy(1, lcd.LcdString("Sent Data:") + 5);
+ 21a:	63 e8       	ldi	r22, 0x83	; 131
+ 21c:	70 e0       	ldi	r23, 0x00	; 0
+ 21e:	8f e8       	ldi	r24, 0x8F	; 143
+ 220:	90 e0       	ldi	r25, 0x00	; 0
+ 222:	0e 94 b8 00 	call	0x170	; 0x170 <_ZN13Lcd_4_BitMode9LcdStringEPc>
+ 226:	45 e0       	ldi	r20, 0x05	; 5
+ 228:	48 0f       	add	r20, r24
+ 22a:	61 e0       	ldi	r22, 0x01	; 1
+ 22c:	8f e8       	ldi	r24, 0x8F	; 143
+ 22e:	90 e0       	ldi	r25, 0x00	; 0
+ 230:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <_ZN13Lcd_4_BitMode7LcdGoXyEhh>
+		lcd.LcdChar(data);
+ 234:	6c 2f       	mov	r22, r28
+ 236:	8f e8       	ldi	r24, 0x8F	; 143
+ 238:	90 e0       	ldi	r25, 0x00	; 0
+ 23a:	0e 94 70 00 	call	0xe0	; 0xe0 <_ZN13Lcd_4_BitMode7LcdCharEh>
+ 23e:	cf 5f       	subi	r28, 0xFF	; 255
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 240:	2f e9       	ldi	r18, 0x9F	; 159
+ 242:	86 e8       	ldi	r24, 0x86	; 134
+ 244:	91 e0       	ldi	r25, 0x01	; 1
+ 246:	21 50       	subi	r18, 0x01	; 1
+ 248:	80 40       	sbci	r24, 0x00	; 0
+ 24a:	90 40       	sbci	r25, 0x00	; 0
+ 24c:	e1 f7       	brne	.-8      	; 0x246 <main+0x6c>
+ 24e:	00 c0       	rjmp	.+0      	; 0x250 <main+0x76>
+ 250:	00 00       	nop
+ 252:	de cf       	rjmp	.-68     	; 0x210 <main+0x36>
+
+00000254 <_ZN3Spi13SpiMasterInitE12SCKFrequency>:
+ #include <avr/io.h>
+ 
+ 
+ void Spi::SpiMasterInit(SCKFrequency freq)
+ {
+	 switch (freq)
+ 254:	86 2f       	mov	r24, r22
+ 256:	90 e0       	ldi	r25, 0x00	; 0
+ 258:	87 30       	cpi	r24, 0x07	; 7
+ 25a:	91 05       	cpc	r25, r1
+ 25c:	00 f5       	brcc	.+64     	; 0x29e <_ZN3Spi13SpiMasterInitE12SCKFrequency+0x4a>
+ 25e:	fc 01       	movw	r30, r24
+ 260:	e6 5d       	subi	r30, 0xD6	; 214
+ 262:	ff 4f       	sbci	r31, 0xFF	; 255
+ 264:	0c 94 5c 01 	jmp	0x2b8	; 0x2b8 <__tablejump2__>
+	 {
+		 case devidedBy4:
+		 SPCR &= ~(1 << SPR0);
+ 268:	68 98       	cbi	0x0d, 0	; 13
+		 SPCR &= ~(1 << SPR1);
+ 26a:	69 98       	cbi	0x0d, 1	; 13
+		 SPSR &= ~(1 << SPI2X);
+ 26c:	70 98       	cbi	0x0e, 0	; 14
+		 break;
+ 26e:	17 c0       	rjmp	.+46     	; 0x29e <_ZN3Spi13SpiMasterInitE12SCKFrequency+0x4a>
+		 case devidedBy16:
+		 SPCR |= (1 << SPR0);
+ 270:	68 9a       	sbi	0x0d, 0	; 13
+		 SPCR &= ~(1 << SPR1);
+ 272:	69 98       	cbi	0x0d, 1	; 13
+		 SPSR &= ~(1 << SPI2X);
+ 274:	70 98       	cbi	0x0e, 0	; 14
+		 break;
+ 276:	13 c0       	rjmp	.+38     	; 0x29e <_ZN3Spi13SpiMasterInitE12SCKFrequency+0x4a>
+		 case devidedBy64:
+		 SPCR &= ~(1 << SPR0);
+ 278:	68 98       	cbi	0x0d, 0	; 13
+		 SPCR |= (1 << SPR1);
+ 27a:	69 9a       	sbi	0x0d, 1	; 13
+		 SPSR &= ~(1 << SPI2X);
+ 27c:	70 98       	cbi	0x0e, 0	; 14
+		 break;
+ 27e:	0f c0       	rjmp	.+30     	; 0x29e <_ZN3Spi13SpiMasterInitE12SCKFrequency+0x4a>
+		 case devidedBy128:
+		 SPCR = (1 << SPR0)|(1 << SPR1);
+ 280:	83 e0       	ldi	r24, 0x03	; 3
+ 282:	8d b9       	out	0x0d, r24	; 13
+		 SPSR &= ~(1 << SPI2X);
+ 284:	70 98       	cbi	0x0e, 0	; 14
+		 break;
+ 286:	0b c0       	rjmp	.+22     	; 0x29e <_ZN3Spi13SpiMasterInitE12SCKFrequency+0x4a>
+		 case devidedBy2:
+		 SPCR &= ~(1 << SPR0);
+ 288:	68 98       	cbi	0x0d, 0	; 13
+		 SPCR &= ~(1 << SPR1);
+ 28a:	69 98       	cbi	0x0d, 1	; 13
+		 SPSR |= (1 << SPI2X);
+ 28c:	70 9a       	sbi	0x0e, 0	; 14
+		 break;
+ 28e:	07 c0       	rjmp	.+14     	; 0x29e <_ZN3Spi13SpiMasterInitE12SCKFrequency+0x4a>
+		 case devidedBy8:
+		 SPCR |= (1 << SPR0);
+ 290:	68 9a       	sbi	0x0d, 0	; 13
+		 SPCR &= ~(1 << SPR1);
+ 292:	69 98       	cbi	0x0d, 1	; 13
+		 SPSR |= (1 << SPI2X);
+ 294:	70 9a       	sbi	0x0e, 0	; 14
+		 break;
+ 296:	03 c0       	rjmp	.+6      	; 0x29e <_ZN3Spi13SpiMasterInitE12SCKFrequency+0x4a>
+		 case devidedBy32:
+		 SPCR &= ~(1 << SPR0);
+ 298:	68 98       	cbi	0x0d, 0	; 13
+		 SPCR |= (1 << SPR1);
+ 29a:	69 9a       	sbi	0x0d, 1	; 13
+		 SPSR |= (1 << SPI2X);
+ 29c:	70 9a       	sbi	0x0e, 0	; 14
+		 break;
+	 }
+	 DDRB = (1 << SCK)|(1 << MOSI)|(1 << SS);
+ 29e:	80 eb       	ldi	r24, 0xB0	; 176
+ 2a0:	87 bb       	out	0x17, r24	; 23
+	 DDRB &= ~(1 << MISO);
+ 2a2:	be 98       	cbi	0x17, 6	; 23
+	 PORTB |= (1 << 4);
+ 2a4:	c4 9a       	sbi	0x18, 4	; 24
+	 SPCR = (1 << SPE)|(1 << MSTR);
+ 2a6:	80 e5       	ldi	r24, 0x50	; 80
+ 2a8:	8d b9       	out	0x0d, r24	; 13
+	 SS_Enable;
+ 2aa:	c4 98       	cbi	0x18, 4	; 24
+ 2ac:	08 95       	ret
+
+000002ae <_ZN3Spi8SpiWriteEc>:
+ }
+ 
+ void Spi::SpiWrite(char data)
+ {
+	 char flushBuffer;
+	 SPDR = data;
+ 2ae:	6f b9       	out	0x0f, r22	; 15
+	 while(!(SPSR & (1 << SPIF)));
+ 2b0:	77 9b       	sbis	0x0e, 7	; 14
+ 2b2:	fe cf       	rjmp	.-4      	; 0x2b0 <_ZN3Spi8SpiWriteEc+0x2>
+	 flushBuffer = SPDR;
+ 2b4:	8f b1       	in	r24, 0x0f	; 15
+ 2b6:	08 95       	ret
+
+000002b8 <__tablejump2__>:
+ 2b8:	ee 0f       	add	r30, r30
+ 2ba:	ff 1f       	adc	r31, r31
+ 2bc:	05 90       	lpm	r0, Z+
+ 2be:	f4 91       	lpm	r31, Z
+ 2c0:	e0 2d       	mov	r30, r0
+ 2c2:	09 94       	ijmp
+
+000002c4 <_exit>:
+ 2c4:	f8 94       	cli
+
+000002c6 <__stop_program>:
+ 2c6:	ff cf       	rjmp	.-2      	; 0x2c6 <__stop_program>
